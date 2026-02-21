@@ -157,7 +157,6 @@
   list-style:none;
 }
 .ds_fiche_vali_txt a {
-  color: var(--minigrey);
   font: 13px Playfair Display;
   border-bottom: 1px dotted var(--pinkyred);
   width: 171px;
@@ -415,7 +414,6 @@
   background:var(--wrap);
 }
 .ds_fiche_evo_text a {
-  color: var(--clearpurple);
   font-style: italic;
 }
 
@@ -553,7 +551,6 @@ width:265px;
   list-style:none;
 }
 .ds_fiche_generale_txt a {
-  color: var(--morered);
   font: 13px Calibri;
   width: 171px;
   min-height: 45px;
@@ -570,7 +567,6 @@ width:265px;
   list-style: none;
 }
 .ds_fiche_generale_encart_txt a {
-  color: var(--blue);
   font: 13px Calibri;
   width: 171px;
   min-height: 45px;
