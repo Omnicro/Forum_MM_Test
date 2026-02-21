@@ -18,12 +18,12 @@ centrer{
   width: 100%;
   display: block;
 }
-/* surcharge de tous les liens */
-a {
+/* surcharge de tous les liens des posts */
+.hl_interne_post a {
   text-decoration: none !important;
   color:#5c6e77;
 }
-a:visited {
+.hl_interne_post a:visited {
   text-decoration: none !important;
   color:#5c6e77;
 }
