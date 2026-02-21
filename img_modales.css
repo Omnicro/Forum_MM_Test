@@ -1,0 +1,60 @@
+#modale_img{
+  position:fixed;
+  inset:0;
+  z-index:99999;
+  background:rgba(0,0,0,.72);
+  display:none;
+  align-items:center;
+  justify-content:center;
+  padding:24px;
+}
+
+#modale_img.modale_on{
+  display:flex;
+}
+
+#modale_img .modale_box{
+  position:relative;
+  background:#1f1f1f;
+  border:1px solid rgba(214,178,94,.85);
+  border-radius:12px;
+  box-shadow:0 20px 60px rgba(0,0,0,.55);
+  max-width:min(1100px,92vw);
+  max-height:92vh;
+  padding:15px;
+}
+
+#modale_img img{
+  display:block;
+  max-width:calc(92vw - 40px);
+  max-height:calc(92vh - 40px);
+  width:auto;
+  height:auto;
+  border-radius:10px;
+}
+
+#modale_img .modale_close{
+  position:absolute;
+  top:-12px;
+  right:-12px;
+  width:34px;
+  height:34px;
+  border-radius:999px;
+  background:#1f1f1f;
+  border:1px solid rgba(214,178,94,.95);
+  color:#fff;
+  font-size:20px;
+  line-height:32px;
+  text-align:center;
+  cursor:pointer;
+  box-shadow:0 10px 26px rgba(0,0,0,.5);
+}
+
+#modale_img .modale_close:hover{
+  filter:brightness(1.1);
+}
+
+img.img_modale{
+  cursor:zoom-in;
+  max-width:450px;
+}

@@ -1,0 +1,25 @@
+:root{
+  --CR_degrade_bleu1:#4272AD;
+  --CR_degrade_bleu2:#AAC2DF;
+}
+
+/* couleur du texte */
+aed{color:#D80353;}ard{color:#FAA401;}dor{color:#587E70;}eal{color:#964BFA;}gai{color:#1560BD;}lam{color:#F2C6FF;}
+hpc{color:#893b4c;}mgn{color:#5847a4;}eko{color:#FF007F;}srs{color:#5A968D;}orn{color:#376794;}trm{color:#ccccff;}ace{color:#86D5C2;}
+aur{color:#006600;}vip{color:#0099ff;}bdw{color:#038BA0;}fen{color:#946DE8;}kni{color:#87cefa;}crv{color:#038BA0;}prl{color:#faaacf;}
+
+a.lien_sans_point{
+  text-decoration: none !important;
+}
+
+degrade_bleu{
+   background: linear-gradient(-225deg, var(--CR_degrade_bleu1) 0%, var(--CR_degrade_bleu2) 100%) !important;
+   -webkit-background-clip: text !important;
+   -webkit-text-fill-color: transparent!important;
+}
+
+centrer{
+  text-align: center;
+  width: 100%;
+  display: block;
+}

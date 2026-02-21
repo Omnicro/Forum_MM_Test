@@ -1,0 +1,54 @@
+.signature_div{
+  margin:13px auto 0;
+  width:100%;
+  display:flex;
+  justify-content:center;
+}
+
+.ds_sign_wrap{
+  width:405px;
+  height: 180px;
+  padding: 0px 6px !important;
+  border-radius:12px;
+  background:linear-gradient(180deg,var(--sign_bg2),var(--sign_bg));
+  border:1px solid color-mix(in srgb,var(--sign_coul2) 35%,transparent);
+  box-shadow:0 5px 14px rgba(0,0,0,.35);
+  text-align:center;
+}
+.ds_sign_gradient_title{
+   background: linear-gradient(-225deg, var(--britainblue) 0%, var(--lighterbritainblue) 100%);
+   -webkit-background-clip: text;
+   -webkit-text-fill-color: transparent;
+ }
+.ds_sign_title{
+  margin: 0px 0 -5px 0px;
+  padding: 4px 6px;
+  font-size:15px;
+  letter-spacing:.5px;  
+  background-color: var(--sign_bg_text);
+  border-radius:8px;
+  font-family:var(--sign_font);
+}
+
+.ds_sign_imgs{
+  display:flex;
+  justify-content:center;
+  gap:10px;
+  margin:6px 0;
+}
+
+.ds_sign_frame{
+  padding:4px;
+  border-radius:14px;  
+  box-shadow:
+    0 0 0 1px color-mix(in srgb,var(--sign_coul2) 35%,transparent),
+    0 6px 18px rgba(0,0,0,.35);
+}
+
+.ds_sign_frame img{
+  width:172px!important;
+  height: 100px;
+  display:block;
+  border-radius:10px;
+  border:1px solid rgba(255,255,255,.08);
+}
