@@ -115,12 +115,13 @@
 
 /* Avatar big */
 .hl_mem_ava img{
-  width: 120px !important;
-  height: 120px !important;
-  object-fit: cover;
-  border: 1px solid rgba(214,178,94,.45);
-  box-shadow: 0 10px 20px rgba(0,0,0,.40);
-  display:block;
+    width: 120px !important;
+    height: 184px !important;
+    object-fit: cover;
+    border: 1px solid rgba(214, 178, 94, .45);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, .40);
+    display: block;
+    border-radius: 10px;
 }
 
 /* Barre blanche parasite (souvent un fond/élément décoratif) */
