@@ -180,31 +180,19 @@
   text-transform:uppercase;
   color:var(--black);
 }
-.ds_fiche_prez {
-  width:584px;
-  margin:0px auto;
-  padding:10px;
-  background:var(--deggris);
-  border-radius:5px;
-  display:flex;
-  flex-wrap:wrap;
-  justify-content:space-between;
-  position:relative;
-  overflow:hidden;
-  z-index:9;
-}
+.ds_fiche_prez,
 .ds_fiche_prez_nobefore {
-  width:584px;
-  margin:0px auto;
-  padding:10px;
-  background:var(--deggris);
-  border-radius:5px;
-  display:flex;
-  flex-wrap:wrap;
-  justify-content:space-between;
-  position:relative;
-  overflow:hidden;
-  z-index:9;
+  width: 584px;
+  margin: 0 auto;
+  padding: 10px;
+  background: var(--deggris);
+  border-radius: 5px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  position: relative;
+  overflow: hidden;
+  z-index: 9;
 }
 .ds_fiche_prez_u {
   width:150px;
@@ -464,6 +452,7 @@ font:13px Calibri;
 text-align:justify;
 color:var(--text);
 }
+
 .ds_fiche_rp_txt img{
 object-fit: cover;
 float:left;
@@ -565,6 +554,23 @@ width:265px;
 }
 .ds_fiche_generale_txt a {
   color: var(--morered);
+  font: 13px Calibri;
+  width: 171px;
+  min-height: 45px;
+  border-radius: 5px;
+}
+
+.ds_fiche_generale_encart_txt {
+  background: #1d1d1d;
+  padding: 10px;
+  text-align: justify;
+  color: var(--minigrey);
+  font: 13px Calibri;
+  border-radius: 5px;
+  list-style: none;
+}
+.ds_fiche_generale_encart_txt a {
+  color: var(--blue);
   font: 13px Calibri;
   width: 171px;
   min-height: 45px;
