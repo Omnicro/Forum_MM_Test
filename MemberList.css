@@ -25,20 +25,20 @@
 }
 
 /* Barre tri */
-#main-content .panel{
+.mem_panel .panel{
   background: transparent !important;
   border: 0 !important;
   padding: 10px 0 !important;
 }
-#main-content .panel p{
+.mem_panel .panel p{
   display:flex;
   flex-wrap:wrap;
   gap: 10px 15px;
   align-items:center;
   justify-content:center;
 }
-#main-content input.inputbox,
-#main-content select{
+#mem_panel input.inputbox,
+#mem_panel select{
   background: rgba(0,0,0,.30) !important;
   border: 1px solid var(--mem-gold2) !important;
   color: var(--mem-text) !important;
