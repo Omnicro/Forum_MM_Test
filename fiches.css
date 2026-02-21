@@ -255,7 +255,7 @@
     width: 400px;    
     margin-top: -25px;
 }
-.ds_fiche_prez_right_sub, .ds_fiche_prez_right_sub_cita {
+.ds_fiche_prez_right_sub{
     text-align: justify;
     font: 10px Calibri;
     text-transform: uppercase;
@@ -269,16 +269,32 @@
     min-height: 10px;
     width: 100%;
 }
+
+.ds_fiche_prez_right_sub_cita {
+    text-align: justify;
+    font: 10px Calibri;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--minigrey);
+    padding: 5px;
+    border-radius: 5px;
+    height: 70px !tant;
+    margin-top: -18px;
+    margin-bottom: 3px;
+    width: 100%;
+}
 .ds_fiche_prez_right_sub_cita::before {
-   content: "\ec2b";
+    content: "\ec2b";
     font-family: 'cappuccicons';
-    position: absolute;
-    left: -4px;
+    position: relative;
+    display: flex;
+    left: -8px;
+    margin-top: -8px;
+    margin-bottom: -18px;
     font-size: 40px;
     color: var(--red);
-    z-index: -1;    
+    z-index: -1;
     opacity: 0.1;
-    top: 455px;
 }
 .ds_fiche_prez_txt {
     background: var(--wrap);
