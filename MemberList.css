@@ -118,7 +118,6 @@
   width: 120px !important;
   height: 120px !important;
   object-fit: cover;
-  border-radius: 20px;
   border: 1px solid rgba(214,178,94,.45);
   box-shadow: 0 10px 20px rgba(0,0,0,.40);
   display:block;
