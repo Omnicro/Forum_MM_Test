@@ -37,8 +37,8 @@
   align-items:center;
   justify-content:center;
 }
-#mem_panel input.inputbox,
-#mem_panel select{
+.mem_panel input.inputbox,
+.mem_panel select{
   background: rgba(0,0,0,.30) !important;
   border: 1px solid var(--mem-gold2) !important;
   color: var(--mem-text) !important;
