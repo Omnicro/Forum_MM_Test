@@ -109,7 +109,7 @@
 
 /* Zones */
 .hl_mem_ava{ grid-area: ava; align-self: start; }
-.hl_mem_name{ grid-area: name; align-self: center; min-width: 0; }
+.hl_mem_name{ grid-area: name; align-self: center; min-width: 0; display: contents;}
 .hl_mem_infos{ grid-area: infos; min-width: 0; }
 .hl_mem_mp{ grid-area: mp; align-self: start; justify-self: end; }
 
@@ -167,6 +167,7 @@
   border: 1px solid rgba(170,194,223,.40);
   background: linear-gradient(-225deg, rgba(170,194,223,.18), rgba(66,114,173,.18));
   padding: 4px;
+  height: 25px;
 }
 
 /* Responsive */
