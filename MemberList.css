@@ -125,10 +125,8 @@
   min-width: 0;
 }
 
-.hl_mem_mp {
-  grid-area: mp;
-  align-self: start;
-  justify-self: end;
+.hl_mem_mp {  
+  direction:rlt;
 }
 
 /* Avatar big */
