@@ -161,6 +161,7 @@
   color: var(--mem-gold1);
   letter-spacing: .6px;
   text-decoration: none;
+  min-width: fit-content;
 }
 
 .hl_mem_name a:hover {
