@@ -65,7 +65,7 @@
 
 .ds_sign_wrap2{
   position:relative;
-  width: 480px;            /* réduit */
+  width: 464px;            /* réduit */
   padding: 14px 16px;      /* réduit */
   border-radius: 16px;
   overflow:hidden;
@@ -76,7 +76,6 @@
 
   display:grid;
   grid-template-rows: auto auto auto;
-  gap: 10px;
   text-align:center;
 }
 
@@ -109,7 +108,7 @@
 .ds_sign_imgs2{
   display:flex;
   justify-content:center;
-  gap: 16px; /* réduit */
+  gap: 4px; /* réduit */
 }
 
 .ds_sign_frame2{
