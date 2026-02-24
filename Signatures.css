@@ -54,59 +54,56 @@
 }
 
 /* ==========================================================
-   SIGNATURE – SKIN 2 (classes en ...2)
+   SIGNATURE – SKIN 2 COMPACT
    ========================================================== */
 
 .signature_div2{
-  margin:13px auto 0;
+  margin:10px auto 0;
   display:flex;
   justify-content:center;
 }
 
-/* Carte signature v2 */
 .ds_sign_wrap2{
   position:relative;
-  width: 560px;           /* ajuste si besoin */
-  padding: 18px 22px;
-  border-radius: 18px;
+  width: 480px;            /* réduit */
+  padding: 14px 16px;      /* réduit */
+  border-radius: 16px;
   overflow:hidden;
 
   background: linear-gradient(180deg, var(--mem-bg2), var(--mem-bg1));
   border: 1px solid var(--mem-gold2);
-  box-shadow: 0 14px 30px rgba(0,0,0,.45);
+  box-shadow: 0 10px 24px rgba(0,0,0,.45);
 
   display:grid;
   grid-template-rows: auto auto auto;
-  gap: 14px;
+  gap: 10px;
   text-align:center;
 }
 
-/* Halo bleu discret */
+/* halo */
 .ds_sign_wrap2::before{
   content:"";
   position:absolute;
   inset:0;
   pointer-events:none;
   background:
-    radial-gradient(900px 300px at 12% 0%, rgba(22,58,116,.32), transparent 55%),
-    radial-gradient(900px 300px at 90% 110%, rgba(66,114,173,.18), transparent 60%);
+    radial-gradient(700px 250px at 12% 0%, rgba(22,58,116,.28), transparent 55%),
+    radial-gradient(700px 250px at 90% 110%, rgba(66,114,173,.15), transparent 60%);
 }
 
-/* Cadre intérieur */
 .ds_sign_wrap2::after{
   content:"";
   position:absolute;
-  inset:10px;
-  border-radius:14px;
-  border:1px solid rgba(214,178,94,.22);
+  inset:8px;
+  border-radius:12px;
+  border:1px solid rgba(214,178,94,.20);
   pointer-events:none;
 }
 
-/* TITRE haut */
+/* TITRE */
 .ds_sign_top2{
-  font: 22px "Playfair Display";
-  letter-spacing:.6px;
-  line-height:1.1;
+  font: 19px "Playfair Display";
+  letter-spacing:.5px;
 }
 
 .ds_sign_gradient_title2{
@@ -115,56 +112,46 @@
   -webkit-text-fill-color:transparent;
 }
 
-/* IMAGES au milieu (centrées) */
+/* IMAGES */
 .ds_sign_imgs2{
   display:flex;
   justify-content:center;
-  align-items:center;
-  gap: 22px;
+  gap: 16px; /* réduit */
 }
 
-/* Cadre image v2 */
 .ds_sign_frame2{
   position:relative;
-  padding: 7px;
-  border-radius: 16px;
+  padding: 5px; /* réduit */
+  border-radius: 14px;
 
   background: rgba(0,0,0,.18);
-  border: 1px solid rgba(214,178,94,.30);
-  box-shadow: 0 10px 22px rgba(0,0,0,.45);
+  border: 1px solid rgba(214,178,94,.28);
+  box-shadow: 0 8px 18px rgba(0,0,0,.45);
 }
 
 .ds_sign_frame2::after{
   content:"";
   position:absolute;
-  inset:6px;
-  border-radius: 12px;
-  border: 1px solid rgba(214,178,94,.20);
+  inset:5px;
+  border-radius:10px;
+  border: 1px solid rgba(214,178,94,.18);
   pointer-events:none;
 }
 
 .ds_sign_frame2 img{
-  width: 240px;       /* ajuste selon ton rendu */
-  height: 140px;
+  width: 200px;   /* réduit */
+  height: 115px;  /* réduit */
   object-fit: cover;
   display:block;
-  border-radius: 12px;
-  border: 1px solid rgba(255,255,255,.08);
+  border-radius: 10px;
 }
 
-/* LIGNE bas */
+/* LIGNE BAS */
 .ds_sign_bottom2{
-  font: 16px Calibri;
-  letter-spacing:.3px;
+  font: 14px Calibri;
+  letter-spacing:.2px;
 }
 
 .ds_sign_bottom_txt2{
   color: rgba(255,255,255,.70);
-}
-
-/* Responsive */
-@media (max-width: 640px){
-  .ds_sign_wrap2{ width: 92vw; }
-  .ds_sign_imgs2{ gap: 12px; }
-  .ds_sign_frame2 img{ width: 38vw; height: 22vw; }
 }
