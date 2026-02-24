@@ -65,7 +65,7 @@
 
 .ds_sign_wrap2{
   position:relative;
-  width: 464px;            /* réduit */
+  width: 410px;            /* réduit */
   padding: 14px 16px;      /* réduit */
   border-radius: 16px;
   overflow:hidden;
@@ -140,8 +140,8 @@
 
 /* LIGNE BAS */
 .ds_sign_bottom2{
-    margin: 4px 0 -5px 0px;
-    padding: 4px 6px;
+    margin: 0px 0 -5px 0px;
+    padding: 4px 0px;
     font-size: 15px;
     letter-spacing: .5px;
     background-color: var(--sign_bg_text);
@@ -156,5 +156,5 @@
 .ds_sign_top2{
     font: 19px "Playfair Display";
     letter-spacing: 0.5px;
-    margin: 0px 0 7px 0;
+    margin: -6px 0 3px 0;
 }
