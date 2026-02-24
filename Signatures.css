@@ -99,13 +99,6 @@
   border:1px solid rgba(214,178,94,.20);
   pointer-events:none;
 }
-
-/* TITRE */
-.ds_sign_top2{
-  font: 19px "Playfair Display";
-  letter-spacing:.5px;
-}
-
 .ds_sign_gradient_title2{
   background: linear-gradient(-225deg, rgba(170,194,223,.95) 0%, rgba(255,255,255,.90) 55%, rgba(22,58,116,.85) 100%);
   -webkit-background-clip:text;
@@ -148,10 +141,21 @@
 
 /* LIGNE BAS */
 .ds_sign_bottom2{
-  font: 14px Calibri;
-  letter-spacing:.2px;
+    margin: 0px 0 -5px 0px;
+    padding: 4px 6px;
+    font-size: 15px;
+    letter-spacing: .5px;
+    background-color: var(--sign_bg_text);
+    border-radius: 8px;
+    font-family: var(--sign_font);
 }
 
 .ds_sign_bottom_txt2{
   color: rgba(255,255,255,.70);
+}
+/* TITRE */
+.ds_sign_top2{
+    font: 19px "Playfair Display";
+    letter-spacing: 0.5px;
+    margin: -5px 0 -11px 0;
 }
