@@ -46,8 +46,8 @@
 }
 
 .ds_sign_frame img{
-  width:172px!important;
-  height: 100px;
+  width:175px !important;
+  height: 98px !important;
   display:block;
   border-radius:10px;
   border:1px solid rgba(255,255,255,.08);
@@ -131,8 +131,8 @@
 }
 
 .ds_sign_frame2 img{
-  width: 200px;   /* réduit */
-  height: 115px;  /* réduit */
+  width:175px !important;
+  height: 98px !important;
   object-fit: cover;
   display:block;
   border-radius: 10px;
