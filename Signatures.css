@@ -1,54 +1,91 @@
 .signature_div{
   margin:13px auto 0;
-  width:100%;
   display:flex;
   justify-content:center;
 }
-
+/* Carte signature */
 .ds_sign_wrap{
-  width:405px;
-  height: 180px;
-  padding: 0px 6px !important;
-  border-radius:12px;
-  background:linear-gradient(180deg,var(--sign_bg2),var(--sign_bg));
-  border:1px solid color-mix(in srgb,var(--sign_coul2) 35%,transparent);
-  box-shadow:0 5px 14px rgba(0,0,0,.35);
-  text-align:center;
+  position:relative;
+  width:420px;
+  padding:14px 16px;
+  border-radius:18px;
+
+  background: linear-gradient(180deg, var(--mem-bg2), var(--mem-bg1));
+  border: 1px solid var(--mem-gold2);
+  box-shadow: 0 14px 30px rgba(0,0,0,.45);
+
+  display:grid;
+  grid-template-columns:120px 1fr;
+  grid-template-areas:
+    "imgs title"
+    "imgs infos";
+  gap:8px 14px;
+  overflow:hidden;
 }
-.ds_sign_gradient_title{
-   background: linear-gradient(-225deg, var(--britainblue) 0%, var(--lighterbritainblue) 100%);
-   -webkit-background-clip: text;
-   -webkit-text-fill-color: transparent;
- }
+/* halo bleu discret (comme les cartes) */
+.ds_sign_wrap::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  background:
+    radial-gradient(900px 300px at 12% 0%, rgba(22,58,116,.32), transparent 55%),
+    radial-gradient(900px 300px at 90% 110%, rgba(66,114,173,.18), transparent 60%);
+}
+/* cadre intérieur */
+.ds_sign_wrap::after{
+  content:"";
+  position:absolute;
+  inset:8px;
+  border-radius:14px;
+  border:1px solid rgba(214,178,94,.22);
+  pointer-events:none;
+}
+/* TITRE */
 .ds_sign_title{
-  margin: 0px 0 -5px 0px;
-  padding: 4px 6px;
-  font-size:15px;
-  letter-spacing:.5px;  
-  background-color: var(--sign_bg_text);
-  border-radius:8px;
-  font-family:var(--sign_font);
-}
+  grid-area:title;
+  align-self:start;
 
+  font:18px Playfair Display;
+  letter-spacing:.6px;
+
+  background: linear-gradient(-225deg, var(--mem-gold1) 0%, rgba(255,255,255,.9) 55%, rgba(170,194,223,.9) 100%);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+
+  padding-left:4px;
+}
+/* IMAGES */
 .ds_sign_imgs{
+  grid-area:imgs;
   display:flex;
-  justify-content:center;
-  gap:10px;
-  margin:6px 0;
+  flex-direction:column;
+  gap:8px;
 }
-
 .ds_sign_frame{
-  padding:4px;
-  border-radius:14px;  
-  box-shadow:
-    0 0 0 1px color-mix(in srgb,var(--sign_coul2) 35%,transparent),
-    0 6px 18px rgba(0,0,0,.35);
-}
-
-.ds_sign_frame img{
-  width:172px!important;
-  height: 100px;
-  display:block;
   border-radius:10px;
-  border:1px solid rgba(255,255,255,.08);
+  overflow:hidden;
+  border:1px solid rgba(214,178,94,.45);
+  box-shadow:0 10px 20px rgba(0,0,0,.40);
+}
+.ds_sign_frame img{
+  width:120px!important;
+  height:88px!important;
+  object-fit:cover;
+  display:block;
+}
+/* INFOS (style pill comme cartes) */
+.ds_sign_infos{
+  grid-area:infos;
+  display:grid;
+  gap:4px;
+  font:12px Calibri;
+  color:var(--mem-muted);
+}
+.ds_sign_infos > div{
+  background: rgba(0,0,0,.22);
+  border: 1px solid rgba(214,178,94,.18);
+  border-radius:10px;
+  padding:5px 8px;
+  line-height:1.2;
 }
