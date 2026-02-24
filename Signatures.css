@@ -140,7 +140,7 @@
 
 /* LIGNE BAS */
 .ds_sign_bottom2{
-    margin: 0px 0 -5px 0px;
+    margin: 4px 0 -5px 0px;
     padding: 4px 6px;
     font-size: 15px;
     letter-spacing: .5px;
