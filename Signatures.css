@@ -144,7 +144,6 @@
     padding: 4px 0px;
     font-size: 15px;
     letter-spacing: .5px;
-    background-color: var(--sign_bg_text);
     border-radius: 8px;
     font-family: var(--sign_font);
 }
