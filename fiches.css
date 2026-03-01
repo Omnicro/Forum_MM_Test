@@ -589,13 +589,17 @@ width:265px;
   border-radius: 5px;
 }
 
-.ds_fiche_s:has(> .ds_fiche_banner){
+.ds_fiche_s:has(> .ds_fiche_banner),
+.ds_fiche_rp:has(> .ds_fiche_banner),
+.ds_thread:has(> .ds_fiche_banner){
   position: relative;
   overflow: hidden;
   padding-top: 40px; 
 }
 
-.ds_fiche_s:has(> .ds_fiche_banner) > .ds_fiche_banner{
+.ds_fiche_s:has(> .ds_fiche_banner) > .ds_fiche_banner,
+.ds_fiche_rp:has(> .ds_fiche_banner) > .ds_fiche_banner,
+.ds_thread:has(> .ds_fiche_banner) > .ds_fiche_banner{
   position: absolute;
   top: -60px;             
   left: 0;
@@ -605,7 +609,10 @@ width:265px;
   z-index: 1;
   display: block;
 }
-.ds_fiche_s:has(> .ds_fiche_banner)::before{
+
+.ds_fiche_s:has(> .ds_fiche_banner)::before,
+.ds_fiche_rp:has(> .ds_fiche_banner)::before,
+.ds_thread:has(> .ds_fiche_banner)::before{
   content:"";
   position:absolute;
   top:-60px;
@@ -626,7 +633,9 @@ width:265px;
   );
 }
 
-.ds_fiche_s:has(> .ds_fiche_banner) > *:not(.ds_fiche_banner){
+.ds_fiche_s:has(> .ds_fiche_banner) > *:not(.ds_fiche_banner),
+.ds_fiche_rp:has(> .ds_fiche_banner) > *:not(.ds_fiche_banner),
+.ds_thread:has(> .ds_fiche_banner) > *:not(.ds_fiche_banner){
   position: relative;
   z-index: 3;
 }
