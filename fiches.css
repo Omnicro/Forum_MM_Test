@@ -588,7 +588,6 @@ width:265px;
   min-height: 45px;
   border-radius: 5px;
 }
-
 .ds_fiche_s:has(> .ds_fiche_banner),
 .ds_fiche_rp:has(> .ds_fiche_banner),
 .ds_thread:has(> .ds_fiche_banner){
@@ -597,18 +596,19 @@ width:265px;
   padding-top: 40px;
 }
 
+
 .ds_fiche_s:has(> .ds_fiche_banner) > .ds_fiche_banner,
 .ds_fiche_rp:has(> .ds_fiche_banner) > .ds_fiche_banner,
 .ds_thread:has(> .ds_fiche_banner) > .ds_fiche_banner{
-  position: absolute;
-  top: -60px;
-  left: 0;
-  width: 100%;
-  height: 140px;
-  object-fit: cover;
-  z-index: 1;
-  display: block;
-  background-image: var(--image_banner);
+  position:absolute;
+  top:-60px;
+  left:0;
+  width:100%;
+  height:140px;
+  object-fit:cover;
+  z-index:1;
+  display:block;
+  background:none !important;
 }
 
 .ds_fiche_s:has(> .ds_fiche_banner)::before,
@@ -622,25 +622,24 @@ width:265px;
   height:140px;
   z-index:2;
   pointer-events:none;
-  background: var(--deentre);
-  -webkit-mask-image: linear-gradient(
-    to bottom,
-    rgba(0, 0, 0, 0.00) 0%,
-    rgba(0, 0, 0, 0.10) 45%,
-    rgba(0, 0, 0, 0.22) 60%,
-    rgba(0, 0, 0, 0.38) 72%,
-    rgba(0, 0, 0, 0.70) 84%,
-    rgba(0, 0, 0, 1.00) 100%
-  );
-  mask-image: linear-gradient(
-    to bottom,
-    rgba(0, 0, 0, 0.00) 0%,
-    rgba(0, 0, 0, 0.10) 45%,
-    rgba(0, 0, 0, 0.22) 60%,
-    rgba(0, 0, 0, 0.38) 72%,
-    rgba(0, 0, 0, 0.70) 84%,
-    rgba(0, 0, 0, 1.00) 100%
-  );
+
+  background:
+    linear-gradient(
+      to bottom,
+      rgb(from var(--deentre) r g b / 0.00) 0%,
+      rgb(from var(--deentre) r g b / 0.00) 50%,
+  
+      rgb(from var(--deentre) r g b / 0.20) 60%,
+      rgb(from var(--deentre) r g b / 0.40) 70%,
+      rgb(from var(--deentre) r g b / 0.60) 80%,
+      rgb(from var(--deentre) r g b / 0.82) 90%,
+      rgb(from var(--deentre) r g b / 0.94) 96%,
+      rgb(from var(--deentre) r g b / 0.99) 100%
+    ),
+    var(--image_banner);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .ds_fiche_s:has(> .ds_fiche_banner) > *:not(.ds_fiche_banner),
