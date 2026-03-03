@@ -608,6 +608,7 @@ width:265px;
   object-fit: cover;
   z-index: 1;
   display: block;
+  background-image: var(--image_banner);
 }
 
 .ds_fiche_s:has(> .ds_fiche_banner)::before,
