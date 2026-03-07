@@ -30,3 +30,22 @@ centrer{
 sans_saut_ligne > br{
   display:none;
 }
+
+img[class^="img_modale_"]{
+    border: 1px solid rgba(214, 178, 94, .85);
+    border-radius: 10px;
+    cursor:zoom-in;
+}
+
+.img_modale_50  { width:50px; }
+.img_modale_100 { width:100px; }
+.img_modale_150 { width:150px; }
+.img_modale_200 { width:200px; }
+.img_modale_250 { width:250px; }
+.img_modale_300 { width:300px; }
+.img_modale_350 { width:350px; }
+.img_modale_400 { width:400px; }
+.img_modale_450 { width:450px; }
+.img_modale_500 { width:500px; }
+.img_modale_550 { width:550px; }
+.img_modale_600 { width:600px; }
