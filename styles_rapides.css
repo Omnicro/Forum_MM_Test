@@ -27,3 +27,6 @@ centrer{
   text-decoration: none !important;
   color:#5c6e77;
 }
+sans_saut_ligne > br{
+  display:none;
+}
