@@ -28,10 +28,20 @@ select.menu_flottant{
   width:38px;
   overflow:hidden;
 
-  background: linear-gradient(180deg, var(--ql-bg2), var(--ql-bg1));
-  border:1px solid var(--ql-gold2);
-  border-radius:var(--ql-radius);
-  box-shadow:var(--ql-shadow);
+  background:
+    linear-gradient(180deg,
+      rgba(255,255,255,.06),
+      rgba(255,255,255,.01)
+    );
+
+  backdrop-filter: blur(2px);
+
+  border:1px solid rgba(214,178,94,.30);
+  border-radius:18px;
+
+  box-shadow:
+    0 14px 30px rgba(0,0,0,.45),
+    inset 0 1px 0 rgba(255,255,255,.04);
 
   transition:width .75s cubic-bezier(.25,.8,.25,1);
   transition-delay:.45s;
