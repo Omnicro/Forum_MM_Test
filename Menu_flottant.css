@@ -1,5 +1,15 @@
 :root{
   --ql-gold:#d6b25e;
+  --ql-gold1: rgba(214, 178, 94, .85);
+  --ql-gold2: rgba(214, 178, 94, .35);
+  --ql-text: rgba(255, 255, 255, .86);
+  --ql-muted: rgba(255, 255, 255, .60);
+  --ql-bg1: rgba(255, 255, 255, .02);
+  --ql-bg2: rgba(255, 255, 255, .06);
+  --ql-radius: 18px;
+  --ql-shadow: 0 14px 30px rgba(0, 0, 0, .45);
+  --ql-blue1: rgba(22, 58, 116, .32);
+  --ql-blue2: rgba(66, 114, 173, .18);
 }
 
 select.menu_flottant{
@@ -16,13 +26,34 @@ select.menu_flottant{
   top:150px;
   z-index:9999;
   width:38px;
-  background:#1f1f1f;
-  border:1px solid var(--ql-gold);
-  border-radius:8px;
-  box-shadow:0 8px 18px rgba(0,0,0,.35);
   overflow:hidden;
+
+  background: linear-gradient(180deg, var(--ql-bg2), var(--ql-bg1));
+  border:1px solid var(--ql-gold2);
+  border-radius:var(--ql-radius);
+  box-shadow:var(--ql-shadow);
+
   transition:width .75s cubic-bezier(.25,.8,.25,1);
   transition-delay:.45s;
+}
+
+#ql_drawer::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  background:
+    radial-gradient(900px 300px at 12% 0%, var(--ql-blue1), transparent 55%),
+    radial-gradient(900px 300px at 90% 110%, var(--ql-blue2), transparent 60%);
+}
+
+#ql_drawer::after{
+  content:"";
+  position:absolute;
+  inset:8px;
+  border-radius:14px;
+  border:1px solid rgba(214, 178, 94, .22);
+  pointer-events:none;
 }
 
 #ql_drawer.ql_open,
@@ -32,6 +63,8 @@ select.menu_flottant{
 }
 
 #ql_head{
+  position:relative;
+  z-index:1;
   padding:8px 6px;
   cursor:grab;
   user-select:none;
@@ -50,8 +83,11 @@ select.menu_flottant{
   transform-origin:center;
   font-size:12px;
   letter-spacing:.06em;
-  color:#d9c3a6;
   white-space:nowrap;
+
+  color:var(--ql-text);
+  text-shadow:0 1px 2px rgba(0,0,0,.35);
+
   transition:
     transform .65s cubic-bezier(.25,.8,.25,1),
     font-size .65s cubic-bezier(.25,.8,.25,1),
@@ -67,11 +103,14 @@ select.menu_flottant{
 }
 
 #ql_body{
+  position:relative;
+  z-index:1;
   max-height:0;
   opacity:0;
   transform:translateY(-15px);
   overflow:hidden;
   padding:0 8px;
+
   transition:
     max-height .6s cubic-bezier(.25,.8,.25,1),
     opacity .4s ease,
@@ -91,7 +130,7 @@ select.menu_flottant{
 
 #ql_divider{
   height:1px;
-  background:var(--ql-gold);
+  background:rgba(214, 178, 94, .35);
   margin:6px 0;
   opacity:.85;
 }
@@ -101,25 +140,29 @@ select.menu_flottant{
   text-align:center;
   text-decoration:none;
   font-size:14px;
-  padding:6px 6px;
+  padding:6px 8px;
   margin:6px 0;
-  color:#fff;
-  background:linear-gradient(
-    -225deg,
-    var(--britainblue) 0%,
-    var(--lighterbritainblue) 100%
-  );
+
+  color:var(--ql-text);
+  background:
+    linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02)),
+    linear-gradient(-225deg, rgba(170, 194, 223, .18), rgba(66, 114, 173, .18));
   border-radius:12px;
-  border:1px solid var(--ql-gold);
+  border:1px solid rgba(214, 178, 94, .18);
   box-shadow:
-    inset 0 1px 0 rgba(255,255,255,.2),
-    0 1px 3px rgba(0,0,0,.35);
+    inset 0 1px 0 rgba(255,255,255,.10),
+    0 8px 18px rgba(0,0,0,.22);
+
   opacity:0;
   transform:translateY(-20px);
+
   transition:
     transform .55s cubic-bezier(.25,.8,.25,1),
     opacity .35s ease,
-    filter .15s ease;
+    filter .15s ease,
+    border-color .18s ease,
+    box-shadow .18s ease,
+    background .18s ease;
 }
 
 #ql_drawer.ql_open #ql_body a.ql_btn,
@@ -139,5 +182,9 @@ select.menu_flottant{
 
 #ql_body a.ql_btn:hover{
   transform:translateY(-2px);
-  filter:brightness(1.1);
+  filter:brightness(1.08);
+  border-color:rgba(170, 194, 223, .55);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.12),
+    0 12px 22px rgba(0,0,0,.32);
 }
