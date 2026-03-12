@@ -28,11 +28,7 @@ select.menu_flottant{
   width:38px;
   overflow:hidden;
 
-  background:
-    linear-gradient(180deg,
-      rgba(255,255,255,.06),
-      rgba(255,255,255,.01)
-    );
+  background: linear-gradient(180deg, var(--q1-bg2), var(--q2-bg1));
 
   backdrop-filter: blur(2px);
 
