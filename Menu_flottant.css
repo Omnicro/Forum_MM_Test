@@ -4,8 +4,8 @@
   --ql-gold2: rgba(214, 178, 94, .35);
   --ql-text: rgba(255, 255, 255, .86);
   --ql-muted: rgba(255, 255, 255, .60);
-  --ql-bg1: rgba(255, 255, 255, .02);
-  --ql-bg2: rgba(255, 255, 255, .06);
+  --ql-bg1: rgb(46 32 10);
+  --ql-bg2: rgb(12 16 46);
   --ql-radius: 18px;
   --ql-shadow: 0 14px 30px rgba(0, 0, 0, .45);
   --ql-blue1: rgba(22, 58, 116, .32);
@@ -28,7 +28,7 @@ select.menu_flottant{
   width:38px;
   overflow:hidden;
 
-  background: linear-gradient(180deg, var(--q1-bg2), var(--q2-bg1));
+  background: linear-gradient(150deg, var(--q1-bg2), var(--q2-bg1));
 
   backdrop-filter: blur(2px);
 
@@ -151,7 +151,7 @@ select.menu_flottant{
   color:var(--ql-text);
   background:
     linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02)),
-    linear-gradient(-225deg, rgba(170, 194, 223, .18), rgba(66, 114, 173, .18));
+    linear-gradient(-225deg, rgba(170, 194, 223, .06), rgba(66, 114, 173, .06));
   border-radius:12px;
   border:1px solid rgba(214, 178, 94, .18);
   box-shadow:
