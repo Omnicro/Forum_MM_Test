@@ -634,7 +634,7 @@ width:265px;
       rgb(from var(--couleurcellule) r g b / 0.82) 90%,
       rgb(from var(--couleurcellule) r g b / 0.94) 96%,
       rgb(from var(--couleurcellule) r g b / 0.99) 100%
-    ), var(--image_banner)
+    ), var(--image_banner);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
