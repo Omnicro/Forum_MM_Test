@@ -30,30 +30,30 @@
   padding: 10px;
   border-radius: 6px;
   margin-bottom: 15px;
-  background: var(--black);
+  background: var(--couleurfond);
   align-items: stretch;
 }
 .hl_qeel_left  {
     padding: 10px;
     border-radius: 6px;
-    border: solid 1px var(--bordergold);
+    border: solid 1px var(--borderpanel);
     width: 260px;
     color: var(--text);
     height: 175px;
     overflow: auto;
     font: 12px Montserrat;
-    background: var(--deentre);
+    background: var(--couleurpanel);
 }
 .hl_qeel_right  {
     padding: 10px;
     border-radius: 6px;
-    border: solid 1px var(--bordergold);
+    border: solid 1px var(--borderpanel);
     width: 310px;
     color: var(--text);
     height: 175px;
     overflow: auto;
     font: 12px Montserrat;
-    background: var(--deentre);
+    background: var(--couleurpanel);
 }
 .hl_qeel_left div strong
 ,.hl_qeel_right div strong{
@@ -95,8 +95,8 @@
   margin-top: 10px;
   padding: 5px;
   border-radius: 6px;
-  border: solid 1px var(--bordergold);
-  background: var(--deentre);
+  border: solid 1px var(--borderpanel);
+  background: var(--couleurpanel);
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
@@ -129,7 +129,7 @@
 .hl_partner:hover {
   transform: translateY(-2px);
   background: rgba(255,255,255,0.06);
-  border-color: var(--bordergold);
+  border-color: var(--borderpanel);
 }
 
 .hl_partner img {
@@ -162,7 +162,7 @@
   font: 11px Montserrat;
   padding: 5px 10px;
   border-radius: 6px;
-  border: 1px solid var(--mem-gold2);
+  border: 1px solid var(--borderpanel);
 
   opacity: 0;
   pointer-events: none;
@@ -180,7 +180,7 @@
   transform: translateX(-50%) translateY(14px);
 
   border: 6px solid transparent;
-  border-top-color: var(--mem-gold2);
+  border-top-color: var(--borderpanel);
 
   opacity: 0;
   transition: 0.2s ease;
@@ -203,8 +203,8 @@
     height: 175px;
     padding: 10px;
     border-radius: 6px;
-    border: solid 1px var(--mem-gold2);
-    background: var(--deentre);
+    border: solid 1px var(--borderpanel);
+    background: var(--couleurpanel);
     text-align: center;
     color: var(--text);
     font: 12px Montserrat;
@@ -224,7 +224,7 @@
   height: 130px;
   object-fit: cover;
   border-radius: 6px;
-  border: 1px solid var(--mem-gold2);
+  border: 1px solid var(--borderpanel);
   transition: 0.2s ease;
 }
 
