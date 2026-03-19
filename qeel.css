@@ -5,7 +5,7 @@
   text-align: center;
   position: relative;
   z-index: 9;
-  color: var(--red);
+  color: var(--text);
   font: 45px Waterfall;
   letter-spacing: 2px;
   background-image: url(https://imgur.com/7Bhze2O.png);
@@ -54,6 +54,7 @@
     overflow: auto;
     font: 12px Montserrat;
     background: var(--couleurpanel);
+    text-align: justify;
 }
 .hl_qeel_left div strong
 ,.hl_qeel_right div strong{
