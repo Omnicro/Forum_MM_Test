@@ -623,13 +623,12 @@ width:265px;
   z-index:2;
   pointer-events:none;
 
-  background:
-    linear-gradient(
+ background: linear-gradient(
       to bottom,
-      rgb(from var(--couleurcellule) r g b / 0.00) 30%,
-      rgb(from var(--couleurcellule) r g b / 0.00) 35%,
-      rgb(from var(--couleurcellule) r g b / 0.20) 40%,
-      rgb(from var(--couleurcellule) r g b / 0.40) 60%,
+      rgb(from var(--couleurcellule) r g b / 0.00) 0%,
+      rgb(from var(--couleurcellule) r g b / 0.00) 50%,
+      rgb(from var(--couleurcellule) r g b / 0.20) 60%,
+      rgb(from var(--couleurcellule) r g b / 0.40) 70%,
       rgb(from var(--couleurcellule) r g b / 0.60) 80%,
       rgb(from var(--couleurcellule) r g b / 0.82) 90%,
       rgb(from var(--couleurcellule) r g b / 0.94) 96%,
