@@ -1,0 +1,317 @@
+
+.hl_qeel_top_title {
+  border-radius: 6px;
+  margin: 30px 0px;
+  text-align: center;
+  position: relative;
+  z-index: 9;
+  color: var(--red);
+  font: 45px Waterfall;
+  letter-spacing: 2px;
+  background-image: url(https://imgur.com/7Bhze2O.png);
+  background-size: 100%;    
+  background-position: 50% 125%;
+  padding-bottom: 50px;
+}
+.hl_qeel_top_title_sub {
+    position: absolute;
+    text-align: center;
+    width: 100%;
+    top: -30px;
+    z-index: -1;
+    font: 45px Hijrnotes;
+    opacity: 0.3;
+    color: var(--text);
+}
+.hl_qeel {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 10px;
+  border-radius: 6px;
+  margin-bottom: 15px;
+  background: var(--black);
+  align-items: stretch;
+}
+.hl_qeel_left  {
+    padding: 10px;
+    border-radius: 6px;
+    border: solid 1px var(--bordergold);
+    width: 260px;
+    color: var(--text);
+    height: 175px;
+    overflow: auto;
+    font: 12px Montserrat;
+    background: var(--deentre);
+}
+.hl_qeel_right  {
+    padding: 10px;
+    border-radius: 6px;
+    border: solid 1px var(--bordergold);
+    width: 310px;
+    color: var(--text);
+    height: 175px;
+    overflow: auto;
+    font: 12px Montserrat;
+    background: var(--deentre);
+}
+.hl_qeel_left div strong
+,.hl_qeel_right div strong{
+  background-image: linear-gradient(-225deg, var(--pinkyred) 0%, var(--red) 100%);
+  background-clip: border-box;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+
+.hl_qeel_gr_name:hover {
+  filter: brightness(1.08);
+}
+.hl_qeel_gr_name div {
+  font-size: 10px;
+  font-weight: initial;
+  color: var(--lavender);
+  text-shadow: 1px 1px 1px #454545;
+  font-style: italic;
+}
+
+#hl_qeel_face {
+  border-radius: 6px;
+  width: 180px;
+  height: 100px;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
+  top: 25px;
+  opacity: 0.5;
+  left: 30px;
+}
+#hl_qeel_face img {
+  width:100%;
+}
+
+.hl_qeel_bottom {
+  width: 100%;
+  margin-top: 10px;
+  padding: 5px;
+  border-radius: 6px;
+  border: solid 1px var(--bordergold);
+  background: var(--deentre);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  overflow: visible;
+}
+
+.hl_qeel_bottom_title {
+  width: 100%;
+  text-align: center;
+  color: var(--red);
+  font: 30px Waterfall;
+  letter-spacing: 1px;
+}
+
+.hl_partner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.03);
+    border: solid 1px rgba(255, 255, 255, 0.06);
+    transition: 0.2s ease;
+    box-sizing: border-box;
+}
+
+.hl_partner:hover {
+  transform: translateY(-2px);
+  background: rgba(255,255,255,0.06);
+  border-color: var(--bordergold);
+}
+
+.hl_partner img {
+  max-width: 100%;
+  max-height: 100%;
+  display: block;
+  object-fit: contain;
+  filter: saturate(0.95) brightness(0.98);
+  transition: 0.2s ease;
+}
+
+.hl_partner:hover img {
+  filter: saturate(1.1) brightness(1.05);
+}
+
+.hl_partner {
+  position: relative;
+  overflow: visible; 
+}
+
+.hl_partner::after {
+  content: attr(data-title);
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%) translateY(10px);
+
+  background: var(--black);
+  color: var(--text);
+  font: 11px Montserrat;
+  padding: 5px 10px;
+  border-radius: 6px;
+  border: 1px solid var(--mem-gold2);
+
+  opacity: 0;
+  pointer-events: none;
+  white-space: nowrap;
+  transition: 0.2s ease;
+
+  z-index: 999;
+}
+
+.hl_partner::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%) translateY(14px);
+
+  border: 6px solid transparent;
+  border-top-color: var(--mem-gold2);
+
+  opacity: 0;
+  transition: 0.2s ease;
+  z-index: 998;
+}
+
+
+.hl_partner:hover::after {
+  opacity: 1;
+  transform: translateX(-50%) translateY(-4px);
+}
+
+.hl_partner:hover::before {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+.hl_qeel_last {
+    width: 126px;    
+    height: 175px;
+    padding: 10px;
+    border-radius: 6px;
+    border: solid 1px var(--mem-gold2);
+    background: var(--deentre);
+    text-align: center;
+    color: var(--text);
+    font: 12px Montserrat;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.hl_qeel_last_title {
+  font: 18px Waterfall;
+  color: var(--red);
+  margin-bottom: 6px;
+}
+
+.hl_qeel_last img {
+  height: 130px;
+  object-fit: cover;
+  border-radius: 6px;
+  border: 1px solid var(--mem-gold2);
+  transition: 0.2s ease;
+}
+
+.hl_qeel_last img:hover {
+  transform: scale(1.05);
+  border-color: var(--pinkyred);
+}
+
+.hl_qeel_last_name {
+  margin-top: 6px;
+  font-weight: bold;
+}
+
+
+.hl_qeel_middle {
+  width: 180px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.hl_qeel_gr {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  position: relative;
+  z-index: 9;
+  padding: 2px;
+  margin: 2px 0px;
+  border-radius: 6px;
+  width: 245px;
+  overflow: hidden;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.hl_qeel_gr::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 6px;
+  background: linear-gradient(
+    180deg,
+    rgba(255,255,255,0.05) 0%,
+    rgba(255,255,255,0.03) 25%,
+    rgba(255,255,255,0.02) 45%,
+    rgba(0,0,0,0.01) 100%
+  );
+  pointer-events: none;
+  z-index: 0;
+  transition: 0.3s ease;
+}
+
+
+.hl_qeel_gr:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+}
+
+.hl_qeel_gr:hover::before {
+  background: linear-gradient(
+    180deg,
+    rgba(255,255,255,0.25) 0%,
+    rgba(255,255,255,0.1) 25%,
+    rgba(255,255,255,0.05) 45%,
+    rgba(0,0,0,0.2) 100%
+  );
+}
+
+.hl_qeel_gr:hover::after {
+  opacity: 1;
+  transform: translateX(30%);
+}
+
+.hl_qeel_gr_name {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  width: 100%;
+  font: 13px Montserrat;  
+  padding-top: 3px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  color: rgba(0, 0, 0, 0.75) !important;
+  text-shadow: 0 1px 0 rgb(0 0 0 / 5%), 0 0 4px rgb(0 0 0 / 9%);
+  transition: 0.2s ease;
+}
+
+.hl_qeel_gr:hover .hl_qeel_gr_name {
+  color: rgba(0,0,0,0.9) !important;
+}
