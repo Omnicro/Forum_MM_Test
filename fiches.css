@@ -558,7 +558,7 @@ width:265px;
   display: contents;
 }
 .ds_fiche_generale_txt {
-  background: var(--wrap);
+  background: var(--couleurpanel);
   padding:10px;
   text-align: justify;
   color: var(--minigrey);
@@ -574,7 +574,7 @@ width:265px;
 }
 
 .ds_fiche_generale_encart_txt {
-  background: #1d1d1d;
+  background: var(--couleurcellule);
   padding: 10px;
   text-align: justify;
   color: var(--minigrey);
