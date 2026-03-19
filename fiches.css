@@ -68,7 +68,7 @@
   width:455px;
 }
 .ds_fiche_link_t {
-  background: var(--wrap);
+  background: var(--couleurpanel);
   color: var(--text);
   font: 13px Arial;
   text-align: justify;
@@ -78,7 +78,7 @@
   padding: 5px;
   margin-left: 2px;
   margin-right: 2px;
-  outline: solid 2px var(--border);
+  outline: solid 2px var(--couleurpanelclaire);
 }
 .ds_fiche_base {
   width:584px;
@@ -126,7 +126,7 @@
   width:584px;
   margin:0px auto;
   padding:10px;
-  background:var(--deggris);
+  background:var(--couleurfond);
   border-radius:5px;
 }
 .ds_fiche_vali_im {
@@ -148,7 +148,7 @@
   margin:20px 0px;
 }
 .ds_fiche_vali_txt {
-  background: var(--wrap);
+  background: var(--couleurpanel);
   padding:10px;
   text-align: justify;
   color: var(--minigrey);
@@ -160,7 +160,7 @@
   font: 13px Playfair Display;
   border-bottom: 1px dotted var(--pinkyred);
   width: 171px;
-  background: var(--deggris);
+  background: var(--couleurcellule);
   padding: 5px;
   display: block;
   margin: 5px;
@@ -184,7 +184,7 @@
   width: 584px;
   margin: 0 auto;
   padding: 10px;
-  background: var(--deggris);
+  background: var(--couleurfond);
   border-radius: 5px;
   display: flex;
   flex-wrap: wrap;
@@ -222,8 +222,8 @@
   text-transform:uppercase;
   letter-spacing:2px;
   background: -webkit-linear-gradient(-225deg, var(--red) 0%, var(--pinkyred) 100%);
--webkit-background-clip: text;
--webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
   border-bottom:2px dotted var(--pinkyred);
   border-top:2px dotted var(--pinkyred);
 }
@@ -297,7 +297,7 @@
     opacity: 0.1;
 }
 .ds_fiche_prez_txt {
-    background: var(--wrap);
+    background: var(--couleurpanel);
     padding: 5px;
     text-align: justify;
     color: var(--minigrey);
@@ -310,7 +310,7 @@
     margin-top: -20px;
     margin-left: 2px;
     margin-right: 2px;
-    outline: solid 2px var(--border);
+    outline: solid 2px var(--couleurpanelclaire);
 }
 .ds_fiche_prez_im {
   width: 130px;
@@ -348,7 +348,7 @@
 }
 .ds_fiche_t {
   width:100%;
-  background:var(--wrap);
+  background:var(--couleurpanel);
   color:var(--minigrey);
   padding:5px;
   text-align:justify;
@@ -427,7 +427,7 @@
   font:13px Arial;
   text-align:justify;
   padding:10px;
-  background:var(--wrap);
+  background:var(--couleurpanel);
 }
 .ds_fiche_evo_text a {
   font-style: italic;
@@ -437,7 +437,7 @@
 width:584px;
 margin: 0 auto;
 border-radius: 6px;
-background: var(--deentre);
+background: var(--couleurcellule);
 padding: 20px;
 }
 .ds_fiche_rp_title{
@@ -500,7 +500,7 @@ margin:10px 0px;
 }
 .ds_fiche_part div{
 border-radius:5px;
-background:var(--wrap);
+background:var(--couleurpanel);
 padding:2px 5px;
 color:var(--text);
 font:12px Calibri;
@@ -515,7 +515,7 @@ width:265px;
     overflow: hidden;
     border-radius: 5px;
     padding: 0px;
-    outline: solid 2px var(--border);
+    outline: solid 2px var(--couleurpanelclaire);
     margin-top: 9px;
 }
 
@@ -525,7 +525,7 @@ width:265px;
     overflow: hidden;
     border-radius: 5px;
     padding: 0px;
-    outline: solid 2px var(--border);
+    outline: solid 2px var(--couleurpanelclaire);
     margin-top: 8px;
 }
 
@@ -535,7 +535,7 @@ width:265px;
     overflow: hidden;
     border-radius: 5px;
     padding: 0px;
-    outline: solid 2px var(--border);
+    outline: solid 2px var(--couleurpanelclaire);
     margin-top: 36px;
 }
 
