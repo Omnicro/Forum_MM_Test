@@ -441,6 +441,7 @@ background: var(--couleurcellule);
 padding: 20px;
 }
 .ds_fiche_rp_title{
+position: relative;
 text-align:center;
 width: 100%;
 text-transform: uppercase;
