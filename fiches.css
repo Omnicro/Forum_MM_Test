@@ -445,13 +445,27 @@ text-align:center;
 width: 100%;
 text-transform: uppercase;
 letter-spacing: 2px;
-border-bottom: 1px solid var(--lighterbritainblue);
 padding-bottom: 5px;
 margin-bottom: 5px;
 background-image: linear-gradient(-225deg, var(--britainblue) 0%, var(--lighterbritainblue) 100%);
 -webkit-background-clip: text;
 -webkit-text-fill-color: transparent;
 font: 20px Playfair Display;
+}
+.ds_fiche_rp_title::after {
+    content: "";
+    position: absolute;
+    left: 10%;
+    bottom: 0;
+    width: 80%;
+    height: 1px;
+
+    background: linear-gradient(
+        to right,
+        transparent,
+        var(--lighterbritainblue),
+        transparent
+    );
 }
 .ds_fiche_rp_info{
 text-align:center;
