@@ -104,13 +104,14 @@
   text-align:center;
   font-size:11px;
   line-height:1.15;
-  color: var(--couleurtitrecategorie);
+  color:var(--couleurtitrecategorie);
   border:1px solid var(--borderpanel);
   background:
     linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.015)),
     linear-gradient(135deg, rgba(60,87,144,.15), rgba(18,24,51,.10));
   opacity:0;
-  transform:translateY(-4px);
+  transform:translate3d(0,-4px,0);
+  will-change:transform, opacity;
   transition:
     opacity .18s ease,
     transform .24s var(--nd-ease),
@@ -145,7 +146,7 @@
     linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02)),
     linear-gradient(135deg, rgba(73,103,165,.22), rgba(21,29,60,.14));
   box-shadow:0 6px 12px rgba(0,0,0,.20);
-  transform:translateY(-1px);
+  transform:translate3d(0,-1px,0);
 }
 
 #navdock.is-dragging,
@@ -153,7 +154,10 @@
   cursor:grabbing !important;
 }
 
-#navdock.is-dragging #navdock_links,
-#navdock.is-dragging .navdock_item{
+#navdock.is-dragging #navdock_links{
   transition:none !important;
+}
+
+#navdock.is-dragging .navdock_item{
+  animation:none !important;
 }
