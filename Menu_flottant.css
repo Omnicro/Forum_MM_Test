@@ -19,7 +19,7 @@
   position:fixed !important;
   top:150px;
   left:10px;
-  z-index:9999;
+  z-index:999999;
   width:190px;
   border-radius:var(--nd-radius);
   overflow:hidden;
@@ -31,6 +31,7 @@
   transform:none !important;
   filter:none !important;
   backdrop-filter:none !important;
+  will-change:left, top;
 }
 
 #navdock,
@@ -56,10 +57,16 @@
   display:flex;
   align-items:center;
   justify-content:space-between;
-  cursor:move;
+  cursor:grab;
   user-select:none;
+  -webkit-user-select:none;
+  touch-action:none;
   background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.01));
   border-bottom:1px solid var(--nd-gold-line);
+}
+
+#navdock.is-dragging #navdock_bar{
+  cursor:grabbing;
 }
 
 #navdock_title{
@@ -162,7 +169,7 @@
 
 #navdock.is-dragging,
 #navdock.is-dragging *{
-  cursor:move !important;
+  cursor:grabbing !important;
 }
 
 #navdock.is-dragging #navdock_links,
