@@ -10,7 +10,7 @@
   --nd-text:rgba(255,255,255,.88);
   --nd-text-soft:rgba(255,255,255,.64);
 
-  --nd-radius:12px;
+  --nd-radius:5px;
   --nd-shadow:0 10px 24px rgba(0,0,0,.38);
   --nd-ease:cubic-bezier(.22,.8,.24,1);
 }
