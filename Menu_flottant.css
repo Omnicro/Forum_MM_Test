@@ -70,10 +70,9 @@
 #navdock_title{
   width:100%;
   text-align:center;
-  font-size:10px;
+  color: var(--couleurtitrecategorie);
+  font: 20px Imperial Script;
   letter-spacing:.12em;
-  text-transform:uppercase;
-  color:#f0deb0;
   pointer-events:none;
 }
 
@@ -105,8 +104,8 @@
   text-align:center;
   font-size:11px;
   line-height:1.15;
-  color:var(--nd-text);
-  border:1px solid rgba(214,178,94,.10);
+  color: var(--couleurtitrecategorie);
+  border:1px solid var(--borderpanel);
   background:
     linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.015)),
     linear-gradient(135deg, rgba(60,87,144,.15), rgba(18,24,51,.10));
