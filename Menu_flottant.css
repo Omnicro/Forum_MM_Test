@@ -10,7 +10,7 @@
   --nd-text:rgba(255,255,255,.88);
   --nd-text-soft:rgba(255,255,255,.64);
 
-  --nd-radius:5px;
+  --nd-radius:6px;
   --nd-shadow:0 10px 24px rgba(0,0,0,.38);
   --nd-ease:cubic-bezier(.22,.8,.24,1);
 }
@@ -99,7 +99,7 @@
   display:block;
   margin:0 0 4px 0;
   padding:6px 6px;
-  border-radius:8px;
+  border-radius:6px;
   text-decoration:none;
   text-align:center;
   font-size:11px;
