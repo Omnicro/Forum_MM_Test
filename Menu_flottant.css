@@ -139,8 +139,8 @@
 #navdock.is-open .navdock_item:nth-child(8){transition-delay:.16s;}
 
 .navdock_item:hover{
-  color:#fff4d2;
-  border-color:rgba(214,178,94,.34);
+  color:var(--nd-gold);
+  border:1px solid var(--nd-gold);
   background:
     linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02)),
     linear-gradient(135deg, rgba(73,103,165,.22), rgba(21,29,60,.14));
