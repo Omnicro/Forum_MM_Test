@@ -26,8 +26,8 @@
 
 #modale_img img{
   display:block;
-  max-width:calc(92vw - 40px);
-  max-height:calc(92vh - 40px);
+  max-width: calc(100vh - 40px);
+  max-height: calc(100vh - 40px);
   width:auto;
   height:auto;
   border-radius:10px;
