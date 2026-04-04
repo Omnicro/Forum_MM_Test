@@ -165,8 +165,14 @@
   animation:none !important;
 }
 
-#navdock .navdock_item a:visited,
-#navdock .navdock_item a:link,
+#navdock .navdock_item a:visited{
+  color:var(--text) !important;
+}
+
+#navdock .navdock_item a:link{
+  color:var(--text) !important;
+}
+
 #navdock .navdock_item a:active{
   color:var(--text) !important;
 }
