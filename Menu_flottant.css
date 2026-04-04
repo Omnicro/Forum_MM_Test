@@ -164,3 +164,7 @@
 #navdock.is-dragging .navdock_item{
   animation:none !important;
 }
+
+#navdock .navdock_item a:visited{
+  color:var(--text) !important;
+}
