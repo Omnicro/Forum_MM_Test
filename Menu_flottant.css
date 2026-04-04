@@ -95,15 +95,15 @@
   padding:4px;
 }
 
-#navdock .navdock_item:visited{
+.navdock_item:visited{
   color:var(--text);
 }
 
-#navdock .navdock_item:link{
+.navdock_item:link{
   color:var(--text);
 }
 
-#navdock .navdock_item:active{
+.navdock_item:active{
   color:var(--text);
 }
 
