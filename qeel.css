@@ -316,3 +316,13 @@
 .hl_qeel_gr:hover .hl_qeel_gr_name {
   color: rgba(0,0,0,0.9) !important;
 }
+
+.hl_qeel_left a[href^="/u"] span[class*="group-"],
+.hl_qeel_left a[href^="/u"] span[class*="group-"] strong {
+  background: none !important;
+  background-image: none !important;
+  -webkit-background-clip: initial !important;
+  background-clip: initial !important;
+  -webkit-text-fill-color: currentColor !important;
+  color: inherit !important;
+}
