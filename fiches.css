@@ -685,6 +685,10 @@ width:265px;
   box-sizing:border-box;
 }
 
+.ds_parten_wrap > br{
+  display:none;
+}
+
 .ds_parten_banner{
   position:relative;
   height:170px;
@@ -695,8 +699,8 @@ width:265px;
       to bottom,
       rgba(0,0,0,.05) 0%,
       rgba(0,0,0,.25) 45%,
-      rgb(from var(--couleurcellule) r g b / .85) 92%,
-      var(--couleurcellule) 100%
+      rgba(10,12,25,.85) 92%,
+      rgba(10,12,25,1) 100%
     ),
     url("https://2img.net/i.ibb.co/ccgc560J/Bani-re-ancienne.png");
   background-size:cover;
@@ -780,7 +784,6 @@ width:265px;
   );
 }
 
-/* Nouveautés en cartes cliquables */
 .ds_parten_cards{
   display:grid;
   grid-template-columns:1fr 1fr;
@@ -843,10 +846,9 @@ width:265px;
   font:14px Calibri, Arial, sans-serif;
   line-height:21px;
   text-align:justify;
-  background:rgb(from var(--couleurcellule) r g b / .45);
+  background:rgba(0,0,0,.18);
 }
 
-/* Nouveau prédéfini */
 .ds_parten_focus{
   display:grid;
   grid-template-columns:145px 1fr;
@@ -908,7 +910,14 @@ width:265px;
   color:var(--ds_parten_accent2);
 }
 
-/* Divers détaillé */
+.ds_parten_note{
+  display:inline;
+  color:var(--ds_parten_accent2);
+  font:13px "Playfair Display", serif;
+  font-style:italic;
+  letter-spacing:1px;
+}
+
 .ds_parten_divers{
   display:grid;
   grid-template-columns:1fr 1fr;
@@ -954,28 +963,105 @@ width:265px;
 }
 
 .ds_parten_residents{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:5px;
+  margin-top:7px;
+  text-align:left;
+}
+
+.ds_parten_resident{
   display:flex;
-  flex-direction:column;
-  gap:3px;
-  text-align:right;
-  font:12px Calibri, Arial, sans-serif;
-  line-height:15px;
+  align-items:center;
+  justify-content:space-between;
+  gap:5px;
+  padding:4px 6px;
+  border-radius:5px;
+  background:
+    linear-gradient(
+      to right,
+      rgba(255,255,255,.03),
+      rgba(0,0,0,.12)
+    );
+  outline:1px solid var(--member-color);
+  text-decoration:none!important;
+}
+
+.ds_parten_resident:hover{
+  background:rgba(255,255,255,.06);
+}
+
+.ds_parten_resident_name{
+  font-weight:bold;
+  white-space:nowrap;
+  font-size:11px;
+}
+
+.ds_parten_resident_role{
+  opacity:.75;
+  color:var(--minigrey);
+  font-size:9px;
+  text-transform:uppercase;
+  letter-spacing:.6px;
+  white-space:nowrap;
 }
 
 .ds_parten_groupes{
-  display:flex;
-  flex-wrap:wrap;
-  gap:4px;
-  margin-top:6px;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:5px;
+  margin-top:7px;
 }
 
 .ds_parten_grp{
-  display:inline-block;
-  padding:2px 6px;
+  --group-color: var(--ds_parten_accent2);
+
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:6px;
+
+  padding:4px 6px;
   border-radius:5px;
-  background:var(--couleurcellule);
+
+  background:
+    linear-gradient(
+      to right,
+      rgba(255,255,255,.04),
+      rgba(0,0,0,.16)
+    );
+
+  outline:1px solid var(--group-color);
+  color:var(--minigrey);
   font:11px Calibri, Arial, sans-serif;
   letter-spacing:.5px;
+}
+
+.ds_parten_grp_name{
+  color:var(--group-color);
+  font-weight:bold;
+}
+
+.ds_parten_grp_count{
+  min-width:16px;
+  height:16px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+
+  border-radius:4px;
+  background:rgba(255,255,255,.08);
+  color:var(--text);
+  font-size:10px;
+}
+
+.ds_parten_empty{
+  display:block;
+  grid-column:1 / -1;
+  color:var(--minigrey);
+  opacity:.7;
+  font:11px Calibri, Arial, sans-serif;
+  text-align:center;
 }
 
 .ds_parten_link{
@@ -988,13 +1074,12 @@ width:265px;
   color:var(--text)!important;
 }
 
-/* Liens en bas sans conteneur de fond */
 .ds_parten_nav{
   display:flex;
   justify-content:space-between;
   align-items:stretch;
-  gap:6px;
-  margin:18px 0 0 0;
+  gap:5px;
+  margin:18px -4px 0 -4px;
   padding:0;
 }
 
@@ -1004,23 +1089,27 @@ width:265px;
   display:flex;
   align-items:center;
   justify-content:center;
-  min-height:34px;
-  padding:5px 4px;
+  min-height:35px;
+  padding:5px 3px;
   border-radius:6px;
+
   background:
     linear-gradient(
       to bottom,
-      rgb(from var(--couleurpanel) r g b / .85),
-      rgb(from var(--couleurcellule) r g b / .65)
+      rgba(255,255,255,.05),
+      rgba(0,0,0,.18)
     );
-  outline:1px solid rgb(from var(--ds_parten_accent2) r g b / .35);
+
+  outline:1px solid rgba(120,160,255,.45);
   color:var(--ds_parten_accent2)!important;
   text-align:center;
   text-decoration:none!important;
   text-transform:uppercase;
-  letter-spacing:1px;
-  font:9px Calibri, Arial, sans-serif;
+  letter-spacing:.7px;
+  font:8px Calibri, Arial, sans-serif;
+  white-space:nowrap;
   overflow:hidden;
+
   transition:
     color .35s ease,
     outline-color .35s ease,
@@ -1060,12 +1149,7 @@ width:265px;
 .ds_parten_nav a:hover{
   color:var(--text)!important;
   outline-color:var(--ds_parten_accent2);
-  background:
-    linear-gradient(
-      to bottom,
-      rgb(from var(--ds_parten_accent) r g b / .28),
-      rgb(from var(--couleurcellule) r g b / .85)
-    );
+  background:rgba(120,160,255,.12);
   transform:translateY(-2px);
 }
 
@@ -1082,10 +1166,3 @@ width:265px;
   text-transform:uppercase;
   letter-spacing:2px;
 }
-
-.ds_parten_wrap br{
-  display:none;
-}
-</style>
-
-<div class="ds_parten_wrap"
