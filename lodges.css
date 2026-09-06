@@ -22,9 +22,8 @@ text-align:center;
 background:rgba(0,0,0,.08);
 }
 
-.lodges_box br,
-.lodges_media br,
-.lodges_text br{
+.lodges_box > br,
+.lodges_media br{
 display:none!important;
 }
 
@@ -49,19 +48,19 @@ cursor:zoom-in;
 position:absolute;
 left:0;
 right:0;
-bottom:-90%;
+bottom:-100%;
 z-index:3;
 
 display:flex;
 flex-wrap:wrap;
 align-content:flex-start;
 align-items:flex-start;
-gap:8px;
+gap:6px;
 
 padding:10px;
 box-sizing:border-box;
 
-height:90%;
+height:100%;
 overflow-y:auto;
 overflow-x:hidden;
 
@@ -78,6 +77,7 @@ transition:bottom .35s ease, opacity .25s ease;
 
 overscroll-behavior:contain;
 scrollbar-width:thin;
+scrollbar-gutter:stable;
 }
 
 .lodges_box:hover .lodges_strip{
@@ -87,10 +87,13 @@ opacity:1;
 
 .lodges_strip .lodges_detail{
 display:block;
-max-width:140px;
-max-height:110px;
-width:auto;
+flex:none;
+min-width:0;
+max-width:none;
+max-height:none;
+width:140px;
 height:auto;
+object-fit:contain;
 box-sizing:border-box;
 border:1px solid rgba(214,178,94,.85);
 border-radius:10px;
@@ -112,11 +115,17 @@ box-sizing:border-box;
 background:var(--wrap);
 text-align:justify;
 color:var(--minigrey);
-font:13px Calibri;
-overflow:auto;
+font:13px/1.6 Calibri, sans-serif;
+max-height:300px;
+overflow-y:auto;
+overflow-x:hidden;
+overflow-wrap:break-word;
+scrollbar-width:thin;
+scrollbar-color:var(--minigrey) var(--wrap);
+scrollbar-gutter:stable;
 border-radius:5px;
 outline:solid 2px var(--border);
-padding:8px;
+padding:14px;
 position:relative;
 z-index:2;
 }
