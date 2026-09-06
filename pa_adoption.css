@@ -119,6 +119,15 @@
   }
 
   .hog_pa_ins > .hog_pa_middle:has(> .mm-pa-adoption-grid) {
-    margin-top: -35px;
+    margin-top: -20px;
+  }
+
+  /* Réserve la place de la bannière et équilibre les panneaux latéraux. */
+  .hog_pa_ins:has(> .hog_pa_middle > .mm-pa-adoption-grid) > .hog_pa_left > .hog_pa_cont {
+    height: 244px;
+  }
+
+  .hog_pa_ins:has(> .hog_pa_middle > .mm-pa-adoption-grid) > .hog_pa_right .hog_pa_right_que {
+    height: 75px;
   }
 }
