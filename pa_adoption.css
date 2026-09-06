@@ -13,11 +13,11 @@
   position: relative;
   display: block;
   min-width: 0;
-  aspect-ratio: 6 / 5;
+  aspect-ratio: 1 / 1;
   overflow: hidden;
   border-radius: 6px;
   background-color: #101a30;
-  background-size: cover;
+  background-size: contain;
   background-position: center top;
   background-repeat: no-repeat;
   box-shadow: inset 0 0 0 1px rgba(170, 194, 223, .25);
@@ -88,5 +88,37 @@
   .mm-pa-adoption-grid > .mm-pa-adoption::before,
   .mm-pa-adoption .mm-pa-adoption-caption {
     transition: none;
+  }
+}
+
+/* Alignement de l'accueil sur grand écran, sans réduire les panneaux. */
+@media (min-width: 1000px) {
+  body:has(.mm-pa-adoption-grid) .hl_top_ann:has(> .hl_top_ann_left > iframe[src*="youtube.com/embed/dQw4w9WgXcQ"]) {
+    min-height: 228px;
+  }
+
+  body:has(.mm-pa-adoption-grid) .hl_top_ann > .hl_top_ann_left:has(> iframe[src*="youtube.com/embed/dQw4w9WgXcQ"]) {
+    width: 330px;
+    align-self: flex-start;
+  }
+
+  body:has(.mm-pa-adoption-grid) .hl_top_ann > .hl_top_ann_left > iframe[src*="youtube.com/embed/dQw4w9WgXcQ"] {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    padding: 0 !important;
+  }
+
+  .panel.introduction:has(.mm-pa-adoption-grid) {
+    overflow: visible;
+  }
+
+  .hog_pa_ins:has(> .hog_pa_middle > .mm-pa-adoption-grid) {
+    align-items: flex-start;
+  }
+
+  .hog_pa_ins > .hog_pa_middle:has(> .mm-pa-adoption-grid) {
+    margin-top: -35px;
   }
 }
