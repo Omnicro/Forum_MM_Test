@@ -1,0 +1,92 @@
+/* Cartes d'adoption de la page d'accueil uniquement. */
+.mm-pa-adoption-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+  width: 100%;
+  flex: 0 0 100%;
+  align-self: flex-start;
+  margin-bottom: 5px;
+}
+
+.mm-pa-adoption-grid > .mm-pa-adoption {
+  position: relative;
+  display: block;
+  min-width: 0;
+  aspect-ratio: 6 / 5;
+  overflow: hidden;
+  border-radius: 6px;
+  background-color: #101a30;
+  background-size: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
+  box-shadow: inset 0 0 0 1px rgba(170, 194, 223, .25);
+  text-decoration: none;
+  isolation: isolate;
+}
+
+.mm-pa-adoption-grid > .mm-pa-adoption::before {
+  content: "";
+  position: absolute;
+  inset: 42% 0 0;
+  background: linear-gradient(to bottom, rgba(6, 16, 37, 0), rgba(6, 16, 37, .86) 58%, rgba(6, 16, 37, .95));
+  opacity: 0;
+  transition: opacity .22s ease;
+  pointer-events: none;
+}
+
+.mm-pa-adoption .mm-pa-adoption-caption {
+  position: absolute;
+  inset: auto 3px 5px;
+  display: grid;
+  gap: 2px;
+  text-align: center;
+  text-shadow: 0 1px 3px #000;
+  opacity: 0;
+  transform: translateY(4px);
+  transition: opacity .22s ease, transform .22s ease;
+  pointer-events: none;
+}
+
+.mm-pa-adoption .mm-pa-adoption-name {
+  color: #fff;
+  font: 700 11px/1.2 "Playfair Display", Georgia, serif;
+  letter-spacing: .2px;
+  text-transform: uppercase;
+  overflow-wrap: anywhere;
+}
+
+.mm-pa-adoption .mm-pa-adoption-link {
+  color: #d3e5ff;
+  font: 600 10px/1.2 Calibri, Arial, sans-serif;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.mm-pa-adoption-grid > .mm-pa-adoption:hover::before,
+.mm-pa-adoption-grid > .mm-pa-adoption:focus-visible::before,
+.mm-pa-adoption:hover .mm-pa-adoption-caption,
+.mm-pa-adoption:focus-visible .mm-pa-adoption-caption {
+  opacity: 1;
+  transform: none;
+}
+
+.mm-pa-adoption-grid > .mm-pa-adoption:focus-visible {
+  outline: 2px solid #c0dcff;
+  outline-offset: -2px;
+}
+
+@media (hover: none), (pointer: coarse) {
+  .mm-pa-adoption-grid > .mm-pa-adoption::before,
+  .mm-pa-adoption .mm-pa-adoption-caption {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mm-pa-adoption-grid > .mm-pa-adoption::before,
+  .mm-pa-adoption .mm-pa-adoption-caption {
+    transition: none;
+  }
+}
