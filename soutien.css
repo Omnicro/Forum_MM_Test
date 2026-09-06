@@ -1,0 +1,51 @@
+/* Emplacements d'images du bloc Nous soutenir uniquement. */
+.hog_pa_vote.mm-support-slots {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 4px;
+  margin: 10px 0 0;
+}
+
+.mm-support-slots > a.mm-support-slot {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 41px;
+  width: 41px;
+  height: 25px;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 4px;
+  overflow: hidden;
+  border-radius: 5px;
+}
+
+.mm-support-slots > a.mm-support-slot:hover {
+  animation: none;
+}
+
+.mm-support-slots > a.mm-support-slot:focus-visible {
+  outline: 2px solid #c0dcff;
+  outline-offset: 2px;
+}
+
+.mm-support-slots > .mm-support-slot > img.mm-support-image {
+  display: none;
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  max-height: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  object-fit: contain;
+}
+
+.mm-support-slots > .mm-support-slot.mm-support-ready > img.mm-support-image {
+  display: block;
+}
+
+.mm-support-slots > .mm-support-slot.mm-support-ready > .material-icons {
+  display: none;
+}
