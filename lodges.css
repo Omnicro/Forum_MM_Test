@@ -60,7 +60,8 @@ gap:6px;
 padding:10px;
 box-sizing:border-box;
 
-height:100%;
+/* Garder 40 px du plan visibles, y compris si le plan est centre. */
+height:max(1px, calc(var(--plan-h, 100%) - 40px));
 overflow-y:auto;
 overflow-x:hidden;
 
@@ -80,8 +81,8 @@ scrollbar-width:thin;
 scrollbar-gutter:stable;
 }
 
-.lodges_box:hover .lodges_strip{
-bottom:0;
+.lodges_media:hover .lodges_strip{
+bottom:var(--plan-bottom-gap, 0%);
 opacity:1;
 }
 
