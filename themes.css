@@ -2538,3 +2538,35 @@ html[data-mm-theme="v2"] #modernbb .hl_cat_total_title{background-image:radial-g
 html[data-mm-theme="v2"] #modernbb .hl_cat_total_title::before{background:linear-gradient(90deg,transparent,#82607c44 20%,#b7945888 38%,#e2c794bd 50%,#b7945888 62%,#82607c44 80%,transparent)}
 html[data-mm-theme="v2"] #modernbb .hl_cat_total_title::after{background:linear-gradient(135deg,#ecd398,#9b753a);box-shadow:0 0 0 3px #061020,0 0 0 4px #b8975966}
 html[data-mm-theme="v2"] #modernbb .hl_cat_grotitle a{color:#dec28e;text-shadow:0 1px 0 #453520,0 2px 0 #060910,0 4px 3px #000}
+
+/* V2 : encre bleue, halo et mouvement discret. Dimensions natives conservées. */
+html[data-mm-theme="v2"] #modernbb{--mm-f-ink:#c3cfdf;--mm-f-muted:#9faec5;--mm-f-line:#829fc45c;--mm-f-line-soft:#7799c638;--mm-mid-surface:linear-gradient(120deg,#21457035,transparent 65%)}
+html[data-mm-theme="v2"] #modernbb :is(.hl_top_ann_middle,.hog_pa_cont,.hog_pa_cred,.ds_pa_mess,.hog_pa_right_que,.hl_qeel_left,.hl_qeel_right,.hl_qeel_last,.hl_qeel_bottom){background-color:#101b30;background-image:linear-gradient(125deg,#385d852b,transparent 65%,#07112133);border-color:#7193bc52}
+html[data-mm-theme="v2"] #modernbb :is(.hl_total_cat,.hl_list_total,.hl_mp_list,.hl_profile,.hl_mem_total){background-color:#0d192c;background-image:linear-gradient(120deg,#27517d2e,transparent 68%);border-color:#7396bd60}
+html[data-mm-theme="v2"] #modernbb :is(.hl_cat_desc,.hl_cat_lastpost,.hl_profile_champs,.hl_interne_pro,.hl_cat_dec){background-color:#081224;background-image:linear-gradient(125deg,#16345733,transparent 70%);border-color:#7396bd40}
+html[data-mm-theme="v2"] #modernbb :is(.hl_list_total_title,.hl_interne_bts){background-color:#112139;background-image:linear-gradient(110deg,#32527c4d,transparent 70%)}
+html[data-mm-theme="v2"] #modernbb .hl_top_bar{background:linear-gradient(110deg,#233c5a66,transparent 55%),#090f1c;box-shadow:inset 0 -1px #92abc04d}
+html[data-mm-theme="v2"] #modernbb :is(.hog_pa_middle_link,.hog_pa_link_parto a,.mm-support-slots>.mm-support-slot){background:linear-gradient(115deg,#29456977,transparent),#122039;border-color:#779ac155}
+html[data-mm-theme="v2"] #modernbb .mm-groups-page :is(.mm-groups-title,.mm-groups-intro,.mm-groups-membership,.mm-groups-directory,.mm-groups-card){background:linear-gradient(115deg,#294d793d,transparent 70%),#101c30!important}
+html[data-mm-theme="v2"] #modernbb .mm-compose{--mw-line:#7b9db354;--mw-ink:#d8e2ef;--mw-muted:#a4b4c9}
+html[data-mm-theme="v2"] #modernbb .mm-compose #postingbox{background:linear-gradient(115deg,#274b712d,transparent 60%),#0e192c;border-color:#7396bd50}
+html[data-mm-theme="v2"] #modernbb .mm-compose .sceditor-toolbar{background:linear-gradient(110deg,#294d723d,transparent 70%),#102039!important;border-bottom-color:#819fc259!important}
+html[data-mm-theme="v2"] #modernbb .mm-compose :is(.sceditor-container>textarea,.sceditor-container>iframe,.mm-source-highlight){background:#091324!important;color:#dce5f0!important}
+html[data-mm-theme="v2"] #modernbb .mm-compose .sceditor-container.mm-highlight-on.sourceMode>textarea{background:transparent!important;color:transparent!important}
+html[data-mm-theme="v2"] #modernbb .mm-compose :is(.mm-editor-layout #smiley-box,#postingbox input[name=subject]){background:#0d1a2e;border-color:#7094bd50}
+html[data-mm-theme="v2"] #modernbb .mm-compose :is(.mm-writer-button,.mm-writer-button.mm-primary,.mm-submit-actions input[type=submit]){background:linear-gradient(110deg,#233f60,#14273d)!important;border-color:#789abb70!important;color:#dfd1b8!important}
+html[data-mm-theme="v2"] #modernbb .mm-writer-dialog{background:#101c30;border-color:#789bb465}
+html[data-mm-theme="v2"] #modernbb .mm-writer-dialog header{background:linear-gradient(110deg,#31547828,transparent);border-image:linear-gradient(90deg,transparent,#829bb47a,transparent) 1}
+html[data-mm-theme="v2"] #modernbb .mm-writer-dialog :is(input[type=text],input[type=search],textarea){background:#080f1d;border-color:#7895b352;color:#dce4ef!important;-webkit-text-fill-color:#dce4ef!important}
+html[data-mm-theme="v2"] #modernbb .mm-writer-dialog :is(label,header p,.mm-dialog-content p,.mm-library-item small,.mm-local-note,.mm-detail-meta){color:#b6c4d6}
+html[data-mm-theme="v2"] #modernbb .mm-writer-overlay .mm-writer-button{background:linear-gradient(115deg,#294665,#192c45);border-color:#85a4bf60;color:#d3e0ec}
+html[data-mm-theme="v2"] #modernbb .mm-writer-dialog :is(.mm-library-item:hover,.mm-library-item[aria-current=true],.mm-send-choice,.mm-close,.mm-writer-tabs button[aria-selected=true]){background:#233c56;color:#d7e3ef;border-color:#7f9dbc60}
+/* Halo sous le lettrage, filet or/bleu et bijou central comme en V4. */
+html[data-mm-theme="v2"] #modernbb .hl_cat_total_title{position:relative;background-image:radial-gradient(ellipse at 50% 62%,#477fbb38,transparent 66%),url(https://imgur.com/7Bhze2O.png);background-size:100% 100%,100%;background-position:50% 50%,50% 50%;background-repeat:no-repeat}
+html[data-mm-theme="v2"] #modernbb .hl_cat_total_title h2{filter:drop-shadow(0 1px 0 #36291a) drop-shadow(0 2px 0 #030713) drop-shadow(0 5px 3px #000) drop-shadow(0 0 12px #dfbd7252)}
+html[data-mm-theme="v2"] #modernbb .hl_cat_total_title::before{content:"";position:absolute;bottom:0;left:15%;right:15%;height:1px;background:linear-gradient(90deg,transparent,#456f9866 20%,#b7945888 38%,#e2c794c9 50%,#b7945888 62%,#456f9866 80%,transparent);box-shadow:0 1px #01050d,0 3px 9px #537ebf29;pointer-events:none}
+html[data-mm-theme="v2"] #modernbb .hl_cat_total_title::after{content:"";position:absolute;left:calc(50% - 2.5px);bottom:2px;width:5px;height:5px;transform:rotate(45deg);background:linear-gradient(135deg,#ecd398,#9b753a);box-shadow:0 0 0 3px #061020,0 0 0 4px #b8975988,0 0 14px #d2ae5f77;pointer-events:none}
+@media(hover:hover) and (pointer:fine) and (prefers-reduced-motion:no-preference){
+ html[data-mm-theme="v2"] #modernbb :is(.hl_total_cat,.hl_list_total,.hl_mp_list,.hl_mem_total,.mm-groups-directory li.mm-groups-card,.mm-pa-adoption,.hog_pa_staff_un,.hog_pa_cont,.ds_pa_mess,.hog_pa_right_que,.hl_top_ann_middle,.mm-support-slot,.hog_pa_middle_link,.hog_pa_link_parto a){transition:transform .22s ease,border-color .22s ease}
+ html[data-mm-theme="v2"] #modernbb :is(.hl_total_cat,.hl_list_total,.hl_mp_list,.hl_mem_total,.mm-groups-directory li.mm-groups-card,.mm-pa-adoption,.hog_pa_staff_un,.hog_pa_cont,.ds_pa_mess,.hog_pa_right_que,.hl_top_ann_middle,.mm-support-slot,.hog_pa_middle_link,.hog_pa_link_parto a):hover{transform:translateY(-2px)!important;border-color:#a0b9d280}
+}
