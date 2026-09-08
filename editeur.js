@@ -87,12 +87,20 @@
     search.type='search';search.placeholder='Rechercher…';search.setAttribute('aria-label','Rechercher dans l’atelier');top.appendChild(search);
     var add=button('+',function(){changeTo(function(){edit(newRecord(active==='fragment'?'fragment':'draft','',''),true);});});add.setAttribute('aria-label','Créer un élément');top.appendChild(add);side.appendChild(top);side.appendChild(list);library.appendChild(side);library.appendChild(detail);d.content.appendChild(library);
     d.footer.appendChild(node('span','mm-local-note','Enregistrés dans ce navigateur, pour ce forum. Exportez une copie pour les conserver ailleurs.'));d.footer.appendChild(button('Exporter mes textes',exportAll));
+    var purge=button('Purger les copies temporaires',function(){
+      changeTo(function(){var copies=records('recovery');if(!copies.length){notify('Aucune copie temporaire à supprimer.');return;}
+        confirmAction('Purger les copies temporaires ?',copies.length+' copie(s) de récupération seront supprimées. Vos brouillons enregistrés et vos fragments seront conservés.','Purger les copies',function(){
+          try{copies.forEach(function(r){var current=readRecord(r.id);if(current&&current.updated===r.updated&&(current.kind==='recovery'||current.kind==='pending'))removeRecord(r.id);});selected=null;dirty=false;render();empty();notify('Copies temporaires supprimées.');}catch(e){notify('Certaines copies n’ont pas pu être supprimées.');}
+        },true);
+      });
+    },'mm-danger');d.footer.appendChild(purge);
     var tabDefs=[['draft','Brouillons'],['fragment','Fragments'],['recovery','Récupération']];
     tabDefs.forEach(function(def){var b=button(def[1],function(){changeTo(function(){active=def[0];selected=null;search.value='';render();empty();});});b.setAttribute('role','tab');b.dataset.kind=def[0];tabs.appendChild(b);});
     function changeTo(action){if(!dirty)return action();confirmAction('Modifications non enregistrées','Continuer sans enregistrer les changements de cet élément ?','Continuer sans enregistrer',function(){dirty=false;action();});}
     d.requestClose=function(){changeTo(d.close);};
     function empty(){detail.replaceChildren();var box=node('div','mm-library-empty');box.appendChild(node('strong','',active==='fragment'?'Un raccourci, tout un texte.':'Vos mots restent ici.'));box.appendChild(node('p','',active==='fragment'?'Enregistrez un fragment, puis tapez son raccourci suivi de Ctrl + Espace dans l’éditeur.':'Choisissez un texte dans la liste ou créez un brouillon.'));detail.appendChild(box);}
     function render(){
+      purge.hidden=active!=='recovery';purge.style.display=active==='recovery'?'':'none';
       Array.prototype.forEach.call(tabs.children,function(b){b.setAttribute('aria-selected',b.dataset.kind===active?'true':'false');});
       list.replaceChildren();var q=search.value.toLocaleLowerCase('fr'),items=records(active).filter(function(r){return [r.name,r.shortcut||'',r.text].join(' ').toLocaleLowerCase('fr').indexOf(q)>=0;});
       if(!items.length)list.appendChild(node('div','mm-library-empty',q?'Aucun résultat.':active==='recovery'?'Aucune copie de récupération.':'Votre bibliothèque est vide.'));
@@ -200,8 +208,15 @@
     var matchingCopy=records('recovery').find(function(r){return r.context&&r.context.key===target.key&&(r.text===getText()||r.text===original.defaultValue)&&(r.subject||'')===subject();});
     if(matchingCopy){context.chain=matchingCopy.chain||matchingCopy.page||pageId;context.links=Object.assign({},matchingCopy.links);if(inSource()&&matchingCopy.text===original.defaultValue&&source.value!==matchingCopy.text){source.value=matchingCopy.text;original.value=matchingCopy.text;emit();}}
     source.addEventListener('input',changed);source.addEventListener('keyup',changed);source.addEventListener('keydown',expand,true);source.addEventListener('scroll',requestPaint,{passive:true});source.addEventListener('select',rememberSelection);source.addEventListener('blur',function(){rememberSelection();save(false);});
+    // SCEditor's source commands may assign textarea.value without an input
+    // event. Observe only the focused editor, before the next screen paint.
+    var sourceWatch=0,observedSource=source.value;
+    function watchSource(){sourceWatch=0;if(!source.isConnected||document.activeElement!==source)return;if(source.value!==observedSource){observedSource=source.value;changed();}sourceWatch=requestAnimationFrame(watchSource);}
+    source.addEventListener('focus',function(){requestPaint();if(!sourceWatch)sourceWatch=requestAnimationFrame(watchSource);});
+    source.addEventListener('blur',function(){if(sourceWatch)cancelAnimationFrame(sourceWatch);sourceWatch=0;});
     if(subjectField)subjectField.addEventListener('input',changed);
-    api.bind('valuechanged',changed);box.addEventListener('click',function(){setTimeout(changed,0);});
+    api.bind('valuechanged',changed);box.addEventListener('click',function(){setTimeout(changed,0);},true);
+    document.addEventListener('click',function(e){if(e.target.closest('.sceditor-dropdown'))setTimeout(changed,0);},true);
     frame.addEventListener('load',styleFrame);styleFrame();new MutationObserver(function(){styleFrame();requestPaint();}).observe(box,{attributes:true,attributeFilter:['class']});
     if(window.ResizeObserver)new ResizeObserver(requestPaint).observe(source);window.addEventListener('resize',requestPaint,{passive:true});
     toggle.addEventListener('click',function(){highlight=!highlight;box.classList.toggle('mm-highlight-on',highlight&&!isBase());toggle.setAttribute('aria-pressed',String(highlight));requestPaint();});
@@ -221,46 +236,25 @@
   }
 
   function protectSubmission(ctx,send,preview){
-    var form=ctx.form,resume=false,submitting=false,resumedEvent=null,lastSubmitter=null;
+    var form=ctx.form,lastSubmitter=null;
     form.addEventListener('click',function(e){var target=e.target.closest('input[type="submit"],button[type="submit"]');if(target&&target.form===form)lastSubmitter=target;},true);
-    window.addEventListener('pageshow',function(){submitting=false;resume=false;});
-    function proceed(submitter,clean,unprotected){
-      if(unprotected){try{sessionStorage.removeItem(PREFIX+'delivery');}catch(e){}}
-      if(!unprotected&&!ctx.save(true)){storageFailure(submitter);return;}
-      if(!unprotected&&!prepareDelivery(ctx,clean)){storageFailure(submitter);return;}
-      ctx.original.value=ctx.getText();resume=true;submitting=true;resumedEvent=null;
-      try{form.requestSubmit(submitter||send);if(!resumedEvent||resumedEvent.defaultPrevented){submitting=false;resume=false;}}
-      catch(e){submitting=false;resume=false;notify('L’envoi n’a pas été lancé. Votre texte reste disponible.');}
-    }
-    function storageFailure(submitter){var d=modal('Votre copie locale n’a pas été enregistrée','',true);d.content.appendChild(node('p','',storageMessage()));d.footer.appendChild(button('Revenir au texte',d.close));d.footer.appendChild(button('Télécharger le texte',function(){download(ctx.getText(),'message-a-conserver.txt');}));d.footer.appendChild(button('Envoyer quand même',function(){d.close();proceed(submitter,false,true);}));}
     form.addEventListener('submit',function(e){
       var submitter=e.submitter||lastSubmitter||send,name=submitter&&submitter.name;
-      if(resume){resume=false;resumedEvent=e;ctx.original.value=ctx.getText();return;}
-      if(name==='preview'){ctx.save(true);return;}
-      if(name!=='post'&&submitter!==send){ctx.save(true);return;}
-      if(submitting){e.preventDefault();e.stopImmediatePropagation();return;}
-      if(!ctx.save(true)){e.preventDefault();e.stopImmediatePropagation();storageFailure(submitter);return;}
-      var linked=Object.keys(ctx.links).filter(function(id){return !!readRecord(id);});
-      // Keep the original native submission: requestSubmit() inside its own
-      // submit event is ignored by browsers' re-entrant submission guard.
-      if(!linked.length){if(!prepareDelivery(ctx,false)){e.preventDefault();e.stopImmediatePropagation();storageFailure(submitter);return;}ctx.original.value=ctx.getText();return;}
-      e.preventDefault();e.stopImmediatePropagation();
-      var d=modal('Envoyer votre message','Une copie de récupération a été enregistrée.',true);d.content.appendChild(node('p','',linked.length+' brouillon'+(linked.length>1?'s sont liés':' est lié')+' à cette rédaction.'));
-      var keep=node('label','mm-send-choice'),keepInput=node('input'),keepText=node('span');keepInput.type='radio';keepInput.name='mm-draft-after-send';keepInput.checked=true;keepText.appendChild(node('strong','','Garder mes brouillons'));keepText.appendChild(node('small','','Ils resteront disponibles dans votre atelier.'));keep.appendChild(keepInput);keep.appendChild(keepText);
-      var clean=node('label','mm-send-choice'),cleanInput=node('input'),cleanText=node('span');cleanInput.type='radio';cleanInput.name='mm-draft-after-send';cleanText.appendChild(node('strong','','Supprimer après publication'));cleanText.appendChild(node('small','','Après l’envoi, confirmez que le message est publié pour autoriser le nettoyage. Un échec conserve vos textes.'));clean.appendChild(cleanInput);clean.appendChild(cleanText);d.content.appendChild(keep);d.content.appendChild(clean);
-      d.footer.appendChild(button('Continuer à rédiger',d.close));d.footer.appendChild(button('Envoyer le message',function(){var choice=cleanInput.checked;d.close();proceed(submitter,choice,false);},'mm-primary'));
+      if(name==='preview'||name!=='post'&&submitter!==send){ctx.save(true);return;}
+      if(!ctx.save(true)||!prepareDelivery(ctx)){e.preventDefault();e.stopImmediatePropagation();notify('La copie de récupération ne peut pas être enregistrée. Votre texte reste dans l’éditeur : téléchargez-le depuis Mes brouillons avant de quitter.');return;}
+      // Save first, then let Forumactif validate and submit its original form.
+      ctx.original.value=ctx.getText();
     },true);
   }
   // Only an explicit Forumactif success receipt authorizes automatic cleanup.
-  function prepareDelivery(ctx,clean){
-    var p=ctx.snapshot('pending-'+uid());p.kind='pending';p.name='Avant envoi — '+(ctx.subject()||time(Date.now()));p.needsConfirmation=true;p.cleanDrafts=clean;p.temporary={};p.recoveryId=ctx.recoveryId;
+  function prepareDelivery(ctx){
+    var p=ctx.snapshot('pending-'+uid());p.kind='pending';p.name='Avant envoi — '+(ctx.subject()||time(Date.now()));p.needsConfirmation=true;p.temporary={};p.recoveryId=ctx.recoveryId;
     records('recovery').forEach(function(r){if((r.kind==='recovery'||r.kind==='pending')&&r.context&&r.context.key===ctx.target.key&&(r.chain===ctx.chain||r.id===ctx.recoveryId||(r.text===p.text&&(r.subject||'')===p.subject)))p.temporary[r.id]=r.updated;});
     p.recoveryVersion=(readRecord(ctx.recoveryId)||{}).updated;
     try{writeRecord(p);sessionStorage.setItem(PREFIX+'delivery',JSON.stringify({id:p.id,at:Date.now()}));return true;}catch(e){return false;}
   }
   function cleanupDelivery(p){
     Object.keys(p.temporary||{}).forEach(function(id){var r=readRecord(id);if(r&&(r.kind==='recovery'||r.kind==='pending')&&r.updated===p.temporary[id])removeRecord(id);});
-    if(p.cleanDrafts||p.cleanDrafts===undefined)Object.keys(p.links||{}).forEach(function(id){var r=readRecord(id);if(r&&r.kind==='draft'&&r.updated===p.links[id])removeRecord(id);});
     removeRecord(p.id);
   }
   function confirmedDelivery(){
@@ -269,16 +263,7 @@
       if(success){var p=readRecord(receipt.id);if(p)cleanupDelivery(p);sessionStorage.removeItem(PREFIX+'delivery');}
     }catch(e){/* Keep the recovery copies whenever confirmation or cleanup fails. */}
   }
-  function showPending(){
-    confirmedDelivery();var pending=records('pending').filter(function(r){return r.needsConfirmation&&r.page!==pageId;});if(!pending.length)return;
-    var banner=node('div','mm-pending-banner'),p=pending[0];banner.appendChild(node('strong','','Votre message a-t-il bien été publié ? '));banner.appendChild(node('span','','La copie d’envoi du '+time(p.updated)+' est conservée en attendant votre confirmation. '));
-    banner.appendChild(button('Oui, nettoyer les copies liées',function(){
-      try{cleanupDelivery(p);banner.remove();notify('Copies temporaires nettoyées. Les brouillons à conserver restent disponibles.');}catch(e){notify('Le nettoyage est incomplet. Les copies restantes sont disponibles dans Récupération.');}
-    }));
-    banner.appendChild(button('Non, récupérer mon texte',function(){loadRecord(p);banner.remove();}));
-    banner.appendChild(button('Conserver mes copies',function(){try{p.needsConfirmation=false;writeRecord(p);banner.remove();}catch(e){notify('Vos copies sont toujours conservées.');}}));
-    var host=document.querySelector('#wrap')||document.body;host.insertBefore(banner,host.firstChild);
-  }
+  function showPending(){confirmedDelivery();}
   function boot(){
     if(location.pathname.indexOf('/admin')===0)return;
     var original=document.querySelector('textarea#text_editor_textarea[name="message"]');
