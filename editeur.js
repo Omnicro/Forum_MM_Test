@@ -158,6 +158,9 @@
     fragmentsButton.title=fragmentsHelp;fragmentsButton.setAttribute('aria-description',fragmentsHelp);tools.appendChild(fragmentsButton);
     var meta=node('div','mm-composer-meta'),state=node('span','mm-save-state','Votre texte est prêt à être rédigé.');state.setAttribute('role','status');state.setAttribute('aria-live','polite');meta.appendChild(state);
     var toggle=node('button','','Balises colorées');toggle.type='button';toggle.setAttribute('aria-pressed','true');meta.appendChild(toggle);box.parentNode.insertBefore(meta,box.nextSibling);
+    // Keep the original counter and its updates; move only its display into the footer.
+    function placeWordCount(){var count=box.parentNode.querySelector('.word-count');if(!count)return false;if(count.parentNode!==meta)meta.insertBefore(count,state);return true;}
+    if(!placeWordCount()){var counterObserver=new MutationObserver(function(){if(placeWordCount())counterObserver.disconnect();});counterObserver.observe(box.parentNode,{childList:true});}
     var underlay=node('div','mm-source-highlight'),paint=node('pre');underlay.setAttribute('aria-hidden','true');underlay.appendChild(paint);box.appendChild(underlay);box.classList.add('mm-highlight-on');source.setAttribute('aria-label','Texte du message');
     source.setAttribute('spellcheck','true');
     var send=form.querySelector('input[name="post"][type="submit"],button[name="post"]'),preview=form.querySelector('input[name="preview"][type="submit"]');
