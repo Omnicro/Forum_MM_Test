@@ -1,5 +1,6 @@
 /* Mythic Meridian — atelier de rédaction. Tous les styles sont isolés. */
 .mm-write-nav,.mm-writer-overlay,.mm-compose{--mw-ink:#e4edf7;--mw-muted:#a8bbd0;--mw-line:rgba(130,163,199,.25);--mw-blue:#91c7e8;--mw-gold:#c8ae79;--mw-bg:#0a1422;--mw-panel:#101e30}
+.mm-compose{box-sizing:border-box;width:100%;max-width:calc(100vw - 60px);margin-left:auto;margin-right:auto}
 .mm-write-nav{position:fixed;top:38px;right:18px;z-index:10001;display:flex;gap:2px;padding:3px;border:1px solid var(--mw-line);border-radius:8px;background:rgba(9,20,34,.96);box-shadow:0 4px 14px #0006,inset 0 1px #a5cce014;backdrop-filter:blur(10px)}
 .mm-write-nav button{appearance:none;border:0;border-radius:4px;padding:6px 10px;background:transparent;color:#c3d8ea;font:12px/1.3 Calibri,Arial,sans-serif;cursor:pointer}
 .mm-write-nav button:hover,.mm-write-nav button:focus-visible{background:#233e58;color:#fff;outline:1px solid #88b5d5}
@@ -19,7 +20,7 @@
 .mm-compose .mm-editor-layout #smiley-box a{color:#a5d0ea}
 .mm-compose .mm-editor-layout #smileyContainer iframe{width:100%!important;height:280px;border:0;border-radius:5px;background:#0d192a}
 .mm-compose #textarea_content{box-sizing:border-box;width:100%!important;max-width:100%;margin:0!important;min-width:0;text-align:left!important}
-.mm-compose#quick_reply{width:100%;max-width:1020px;margin:22px auto}
+.mm-compose#quick_reply{width:100%;max-width:min(1020px,calc(100vw - 60px));margin:22px auto}
 .mm-composer-head{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;align-items:center;margin:0 0 12px}
 .mm-composer-heading{font:17px/1.3 Georgia,serif;color:#d4dfeb}
 .mm-composer-heading small{display:block;margin-bottom:4px;font:10px/1.4 Calibri,Arial,sans-serif;letter-spacing:1.7px;text-transform:uppercase;color:#9ab6d1}
