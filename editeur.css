@@ -118,7 +118,7 @@ html[data-mm-theme="base"] .mm-source-highlight {display:none!important}
 html[data-mm-theme="base"] .mm-composer-head{margin:0 0 10px}
 html[data-mm-theme="base"] .mm-tools{display:flex;flex-wrap:wrap;gap:7px}
 html[data-mm-theme="base"] .mm-compose .mm-writer-button{border:1px solid var(--couleurbordure,#555);border-radius:3px;background:var(--couleurpanel,#16162c);color:var(--couleurtitrecategorie,#b9a38c);padding:6px 10px;cursor:pointer;font:12px/1.4 Calibri,Arial,sans-serif}
-html[data-mm-theme="base"] .mm-composer-meta{display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap;margin:8px 0;font:11px/1.5 Calibri,Arial,sans-serif;color:var(--couleurtexte,#bbb)}
+html[data-mm-theme="base"] .mm-composer-meta{display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap;margin:0;font:11px/1.5 Calibri,Arial,sans-serif;color:var(--couleurtexte,#bbb)}
 html[data-mm-theme="base"] .mm-composer-meta button{display:none}
 html[data-mm-theme="base"] .mm-recovery-banner{margin:8px 0;padding:8px;border:1px solid var(--couleurbordure,#555);font:12px/1.5 Calibri,Arial,sans-serif}
 /* Bibliothèque : encre violette et cuivre du forum, géométrie classique. */
