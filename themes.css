@@ -2326,6 +2326,7 @@ html[data-mm-theme="v2"] #modernbb .mm-groups-directory li.mm-groups-card { back
 html[data-mm-theme="v4"] #modernbb {
   --mm-v4-rim: inset 0 2px 1px #bfdbf54a, inset 2px 0 2px #78a1ca29, inset 0 -3px 2px #01050edd, inset -2px 0 3px #020714aa;
   --mm-v4-base: 0 1px 0 #02050c, 0 4px 0 #060b15, 0 5px 0 #52627b66, 0 11px 14px -5px #000e, 0 26px 32px -13px #000e;
+  --mm-v4-rest: 0 1px 0 #02050c, 0 1.5px 0 #060b15, 0 2px 0 #52627b66, 0 4.5px 10px -5px #000e, 0 10.5px 22.5px -13px #000e;
   --mm-v4-rise: 0 1px 0 #02050c, 0 6px 0 #060b15, 0 7px 0 #657e9b66, 0 15px 18px -6px #000f, 0 33px 36px -15px #000f;
   --mm-v4-well: inset 0 1px 0 #000, inset 0 5px 10px #000b, inset 2px 0 6px #0008, 0 1px 0 #c2b18545, 0 2px 0 #010610;
   --mm-v4-spot: #6ba3dd0b;
@@ -2348,18 +2349,18 @@ html[data-mm-theme="v4"] #modernbb .hl_qeel_right,
 html[data-mm-theme="v4"] #modernbb .hl_qeel_bottom {
   background-image: var(--mm-v4-lit-surface);
   border-color: #b0a17b9c #65799266 #101825 #8b9eb075;
-  box-shadow: var(--mm-v4-rim), var(--mm-v4-base);
+  box-shadow: var(--mm-v4-rim), var(--mm-v4-rest);
   transition: box-shadow .35s ease, border-color .35s ease;
 }
 html[data-mm-theme="v4"] #modernbb .hl_top_ann_middle { background-image: var(--mm-v4-knot), var(--mm-v4-lit-surface); background-position: right 10px bottom 10px, 0 0, 0 0, 0 0; background-size: 30px 30px, 100% 100%, 100% 100%, 100% 100%; background-repeat: no-repeat; }
-html[data-mm-theme="v4"] #modernbb .hl_top_ann_left:has(> iframe) { box-shadow: 0 0 0 1px #bda372c4, 0 0 0 4px #030913, 0 0 0 5px #7793ae75, 0 6px 0 4px #070e1a, 0 7px 0 4px #485c7855, 0 18px 22px -7px #000e; }
+html[data-mm-theme="v4"] #modernbb .hl_top_ann_left:has(> iframe) { box-shadow: 0 0 0 1px #bda372c4, 0 0 0 4px #030913, 0 0 0 5px #7793ae75, 0 2.5px 0 4px #070e1a, 0 3px 0 4px #485c7855, 0 7px 15.5px -7px #000e; }
 html[data-mm-theme="v4"] #modernbb .hog_pa_cred { background-image: linear-gradient(145deg, #0d1929, #050b16); box-shadow: var(--mm-v4-well); border-color: #060b15 #24354b #8c805d66 #101c2d; }
 html[data-mm-theme="v4"] #modernbb .ann_title { filter: drop-shadow(0 1px 0 #02060d); border-image: linear-gradient(90deg, transparent, #d5b679aa 45%, #6e97c76b 70%, transparent) 1; }
-html[data-mm-theme="v4"] #modernbb .hog_pa_cont > span { background: linear-gradient(120deg, #a6834e, #d9bc83 35%, #b49661 65%, #dac191); box-shadow: inset 0 2px 0 #f3dca766, inset 2px 0 1px #e2c28a44, inset -1px -2px 0 #594021bb, 0 3px 0 #332817, 0 4px 0 #b18e5444, 0 8px 10px #0008; }
+html[data-mm-theme="v4"] #modernbb .hog_pa_cont > span { background: linear-gradient(120deg, #a6834e, #d9bc83 35%, #b49661 65%, #dac191); box-shadow: inset 0 2px 0 #f3dca766, inset 2px 0 1px #e2c28a44, inset -1px -2px 0 #594021bb, 0 1px 0 #332817, 0 1.5px 0 #b18e5444, 0 3px 7px #0008; }
 
 /* Cadres de portraits : montures épaisses, image et cadrage intacts. */
 html[data-mm-theme="v4"] #modernbb .mm-pa-adoption-grid > .mm-pa-adoption,
-html[data-mm-theme="v4"] #modernbb .hog_pa_staff_un { outline: 1px solid #d4bb86c4; outline-offset: -1px; box-shadow: 0 0 0 2px #020710, 0 0 0 3px #758ca788, 0 4px 0 2px #050b15, 0 5px 0 2px #b3996444, 0 10px 14px -3px #000e; transition: transform .32s ease, box-shadow .32s ease, outline-color .32s ease; }
+html[data-mm-theme="v4"] #modernbb .hog_pa_staff_un { outline: 1px solid #d4bb86c4; outline-offset: -1px; box-shadow: 0 0 0 2px #020710, 0 0 0 3px #758ca788, 0 1.5px 0 2px #050b15, 0 2px 0 2px #b3996444, 0 4px 10px -3px #000e; transition: transform .32s ease, box-shadow .32s ease, outline-color .32s ease; }
 html[data-mm-theme="v4"] #modernbb .mm-pa-adoption-grid > .mm-pa-adoption::after { inset: 4px; border-color: #e3c89975 #8a734e70 #1b1c21bb #ab986659; box-shadow: inset 0 1px 0 #dfd3b544, inset 0 -2px 3px #000b; background: linear-gradient(115deg, transparent 34%, #e1cba237 48%, #81a9d21a 55%, transparent 67%) no-repeat -180% 0 / 260% 100%; }
 
 /* Les grands titres gardent leur place et leur inscription de fond. */
@@ -2373,7 +2374,7 @@ html[data-mm-theme="v4"] #modernbb .hl_cat_grotitle a { color: #dec28e; text-sha
 html[data-mm-theme="v4"] #modernbb .hl_total_cat {
   background-image: radial-gradient(ellipse 410px 230px at var(--mm-v4-x, 12%) var(--mm-v4-y, 0%), var(--mm-v4-spot), transparent 77%), linear-gradient(125deg, #507aa62e, #07122259 55%, #02071399);
   border-color: #c3aa7e9c #7a8caa70 #0c1526 #8291a88c;
-  box-shadow: inset 0 2px 1px #d0ba894d, inset 2px 0 3px #729ac936, inset -2px -3px 2px #01040cdc, 0 0 0 3px #030814, 0 0 0 4px #74809a70, 0 5px 0 3px #050b16, 0 6px 0 3px #6278975e, 0 17px 20px -6px #000e, 0 33px 37px -20px #000;
+  box-shadow: inset 0 2px 1px #d0ba894d, inset 2px 0 3px #729ac936, inset -2px -3px 2px #01040cdc, 0 0 0 3px #030814, 0 0 0 4px #74809a70, 0 2px 0 3px #050b16, 0 2.5px 0 3px #6278975e, 0 7px 14px -6px #000e, 0 13px 26px -20px #000;
   transition: transform .36s ease, border-color .36s ease, box-shadow .36s ease;
 }
 html[data-mm-theme="v4"] #modernbb .hl_total_cat::before { inset: 5px; border-color: #dcc79744 #7d90ae29 #050a1699 #809aba33; box-shadow: inset 0 1px 0 #030915aa; }
@@ -2381,7 +2382,7 @@ html[data-mm-theme="v4"] #modernbb .hl_total_cat::after { content: ""; position:
 html[data-mm-theme="v4"] #modernbb .hl_cat_desc,
 html[data-mm-theme="v4"] #modernbb .hl_cat_lastpost { background-image: linear-gradient(145deg, #0c1728, #030914 83%); box-shadow: var(--mm-v4-well); }
 html[data-mm-theme="v4"] #modernbb .hl_cat_lastpost { border-color: #040813 #26384d #99845b66 #101d30; }
-html[data-mm-theme="v4"] #modernbb .hl_cat_lastpost_icon { box-shadow: 0 1px 0 #a6936677, 0 -1px 0 #000, 0 0 0 2px #040812, 0 4px 5px #000b; }
+html[data-mm-theme="v4"] #modernbb .hl_cat_lastpost_icon { box-shadow: 0 1px 0 #a6936677, 0 -1px 0 #000, 0 0 0 2px #040812, 0 1.5px 3.5px #000b; }
 html[data-mm-theme="v4"] #modernbb .hl_cat_dec { background: linear-gradient(145deg, #13233a9c, #040b17b8); border-color: #02060f #30435d99 #b29a675e #1d304a77; box-shadow: inset 0 3px 7px #0008, 0 1px 0 #01050d; }
 html[data-mm-theme="v4"] #modernbb .hl_cat_stats { color: #dbc18a; text-shadow: 0 1px 0 #47371f, 0 2px 0 #0a0d14, 0 4px 3px #000e; }
 html[data-mm-theme="v4"] #modernbb .hl_cat_stats_sep { box-shadow: 0 1px 0 #0008; }
@@ -2390,27 +2391,27 @@ html[data-mm-theme="v4"] #modernbb .hl_cat_stats_sep { box-shadow: 0 1px 0 #0008
 html[data-mm-theme="v4"] #modernbb .hl_list_total,
 html[data-mm-theme="v4"] #modernbb .hl_mp_list,
 html[data-mm-theme="v4"] #modernbb .hl_profile,
-html[data-mm-theme="v4"] #modernbb .hl_mem_total { background-image: var(--mm-v4-lit-surface); box-shadow: inset 0 0 0 1px #a8976d75, var(--mm-v4-rim), var(--mm-v4-base); }
-html[data-mm-theme="v4"] #modernbb .hl_list_total_title { background: linear-gradient(105deg, #29415f, #375372 37%, #182c45 83%); box-shadow: inset 0 2px 1px #a7c2dc4d, inset 3px 0 0 #d0b17b, inset 0 -2px 1px #030811cc, 0 3px 0 #050b15, 0 7px 9px -2px #0008; }
+html[data-mm-theme="v4"] #modernbb .hl_mem_total { background-image: var(--mm-v4-lit-surface); box-shadow: inset 0 0 0 1px #a8976d75, var(--mm-v4-rim), var(--mm-v4-rest); }
+html[data-mm-theme="v4"] #modernbb .hl_list_total_title { background: linear-gradient(105deg, #29415f, #375372 37%, #182c45 83%); box-shadow: inset 0 2px 1px #a7c2dc4d, inset 3px 0 0 #d0b17b, inset 0 -2px 1px #030811cc, 0 1px 0 #050b15, 0 3px 6.5px -2px #0008; }
 html[data-mm-theme="v4"] #modernbb .hl_list_lastpost,
 html[data-mm-theme="v4"] #modernbb .hl_interne_pro,
 html[data-mm-theme="v4"] #modernbb .hl_profile_champs { background-image: linear-gradient(145deg, #0b1727, #040b16); box-shadow: var(--mm-v4-well); }
 html[data-mm-theme="v4"] #modernbb .hl_list_title,
-html[data-mm-theme="v4"] #modernbb .hl_interne_title { box-shadow: inset 0 2px 0 #779abc40, inset 0 -1px 0 #b69c6888, 0 3px 0 #030913, 0 4px 0 #71819855, 0 13px 17px -7px #000d; }
-html[data-mm-theme="v4"] #modernbb .hl_interne { box-shadow: 0 0 0 1px #a38d6577, 0 0 0 4px #040a15, 0 0 0 5px #7a8ba644, 0 8px 0 2px #060c17, 0 28px 35px -13px #000e; }
-html[data-mm-theme="v4"] #modernbb .hl_interne_bts { background: linear-gradient(110deg, #263d57, #112039 65%, #0a1425); box-shadow: inset 0 2px 0 #92b4cc38, inset 0 -1px 0 #af956578, 0 3px 0 #020812, 0 6px 8px #0006; }
+html[data-mm-theme="v4"] #modernbb .hl_interne_title { box-shadow: inset 0 2px 0 #779abc40, inset 0 -1px 0 #b69c6888, 0 1px 0 #030913, 0 1.5px 0 #71819855, 0 5px 12px -7px #000d; }
+html[data-mm-theme="v4"] #modernbb .hl_interne { box-shadow: 0 0 0 1px #a38d6577, 0 0 0 4px #040a15, 0 0 0 5px #7a8ba644, 0 3px 0 2px #060c17, 0 11px 24.5px -13px #000e; }
+html[data-mm-theme="v4"] #modernbb .hl_interne_bts { background: linear-gradient(110deg, #263d57, #112039 65%, #0a1425); box-shadow: inset 0 2px 0 #92b4cc38, inset 0 -1px 0 #af956578, 0 1px 0 #020812, 0 2.5px 5.5px #0006; }
 html[data-mm-theme="v4"] #modernbb .hl_profile { background-image: var(--mm-v4-orbit), var(--mm-v4-lit-surface); background-size: 240px 240px, 100% 100%, 100% 100%, 100% 100%; background-position: right -45px top -50px, 0 0, 0 0, 0 0; background-repeat: no-repeat; }
-html[data-mm-theme="v4"] #modernbb .hl_profile_middle img { box-shadow: 0 0 0 1px #ccb27fd4, 0 0 0 4px #030812, 0 0 0 5px #91a4b87d, 0 6px 0 3px #030912, 0 22px 22px -9px #000f; }
+html[data-mm-theme="v4"] #modernbb .hl_profile_middle img { box-shadow: 0 0 0 1px #ccb27fd4, 0 0 0 4px #030812, 0 0 0 5px #91a4b87d, 0 2.5px 0 3px #030912, 0 9px 15.5px -9px #000f; }
 html[data-mm-theme="v4"] #modernbb .hl_mem_total::after { border-color: #d2bb805e; box-shadow: inset 0 1px 0 #010710; }
 html[data-mm-theme="v4"] #modernbb .hl_mem_infos > div { box-shadow: inset 0 3px 5px #0009, 0 1px 0 #92a2b02b; }
 
 /* Annuaire : cartes et cartouches usinés, couleurs des groupes préservées. */
 html[data-mm-theme="v4"] #modernbb .mm-groups-page .mm-groups-title { background-image: var(--mm-v4-orbit), radial-gradient(ellipse at 85% 50%, #5481af40, transparent 57%), linear-gradient(135deg, #243b57, #0c1729); background-size: 235px 235px, 100% 100%, 100% 100%; background-position: right -5px top -80px, 0 0, 0 0; background-repeat: no-repeat; text-shadow: 0 1px 0 #463521, 0 2px 0 #050b16, 0 5px 4px #0009; }
-html[data-mm-theme="v4"] #modernbb .mm-groups-page .mm-groups-intro { box-shadow: var(--mm-v4-rim), var(--mm-v4-base); }
+html[data-mm-theme="v4"] #modernbb .mm-groups-page .mm-groups-intro { box-shadow: var(--mm-v4-rim), var(--mm-v4-rest); }
 html[data-mm-theme="v4"] #modernbb .mm-groups-page > .panel.mm-groups-directory,
-html[data-mm-theme="v4"] #modernbb .mm-groups-page > .panel.mm-groups-membership { background: linear-gradient(145deg, #112037, #050d1a 80%) !important; box-shadow: inset 0 1px 0 #b5a47b55, inset 1px 0 0 #90a9c026, inset 0 -3px 0 #01050bcc, var(--mm-v4-base) !important; }
-html[data-mm-theme="v4"] #modernbb .mm-groups-directory li.mm-groups-card { background-image: var(--mm-v4-laurel), var(--mm-v4-lit-surface); background-position: right bottom, 0 0, 0 0, 0 0; background-size: 76px 76px, 100% 100%, 100% 100%, 100% 100%; background-repeat: no-repeat; border-color: #91a7bd80 #566f8d60 #020711 #7590a972; box-shadow: var(--mm-v4-rim), 0 4px 0 #030912, 0 5px 0 #5e739566, 0 13px 17px -6px #000d; }
-html[data-mm-theme="v4"] #modernbb .mm-groups-membership a.usr_grp_clr { box-shadow: inset 0 1px 0 #9cb7cd44, inset 0 -2px 0 #0009, 0 3px 0 #020711, 0 6px 7px -3px #0009; }
+html[data-mm-theme="v4"] #modernbb .mm-groups-page > .panel.mm-groups-membership { background: linear-gradient(145deg, #112037, #050d1a 80%) !important; box-shadow: inset 0 1px 0 #b5a47b55, inset 1px 0 0 #90a9c026, inset 0 -3px 0 #01050bcc, var(--mm-v4-rest) !important; }
+html[data-mm-theme="v4"] #modernbb .mm-groups-directory li.mm-groups-card { background-image: var(--mm-v4-laurel), var(--mm-v4-lit-surface); background-position: right bottom, 0 0, 0 0, 0 0; background-size: 76px 76px, 100% 100%, 100% 100%, 100% 100%; background-repeat: no-repeat; border-color: #91a7bd80 #566f8d60 #020711 #7590a972; box-shadow: var(--mm-v4-rim), 0 1.5px 0 #030912, 0 2px 0 #5e739566, 0 5px 12px -6px #000d; }
+html[data-mm-theme="v4"] #modernbb .mm-groups-membership a.usr_grp_clr { box-shadow: inset 0 1px 0 #9cb7cd44, inset 0 -2px 0 #0009, 0 1px 0 #020711, 0 2.5px 5px -3px #0009; }
 
 /* Boutons : face bombée, reflet fin et pression physique au clic. */
 html[data-mm-theme="v4"] #modernbb .hog_pa_middle_link,
@@ -2422,18 +2423,18 @@ html[data-mm-theme="v4"] #modernbb .button1,
 html[data-mm-theme="v4"] #modernbb .button2 {
   background: linear-gradient(110deg, #263e59, #365471 40%, #1b3049 75%, #12233b);
   border-color: #9eacb599 #617b9477 #162538 #9c967a88;
-  box-shadow: inset 0 2px 0 #b6c8d44d, inset 0 -2px 1px #030913cc, 0 3px 0 #020711, 0 4px 0 #7b806d6b, 0 8px 9px -3px #000b !important;
+  box-shadow: inset 0 2px 0 #b6c8d44d, inset 0 -2px 1px #030913cc, 0 1px 0 #020711, 0 1.5px 0 #7b806d6b, 0 3px 6.5px -3px #000b !important;
   transition: transform .22s ease, box-shadow .22s ease, border-color .22s ease;
 }
 html[data-mm-theme="v4"] #modernbb .hog_pa_middle_link::before,
 html[data-mm-theme="v4"] #modernbb .hog_pa_link_parto a::before,
 html[data-mm-theme="v4"] #modernbb .mm-support-slots > .mm-support-slot::before { background-image: linear-gradient(112deg, transparent 35%, #c6dded24 46%, #dccb9d33 51%, transparent 65%); }
-html[data-mm-theme="v4"] #modernbb button.mm-groups-filter[aria-pressed="true"] { box-shadow: inset 0 2px 0 #eed7a666, inset 0 -2px 1px #584127bb, 0 3px 0 #241e16, 0 4px 0 #ad90554d, 0 8px 9px -4px #000b; }
+html[data-mm-theme="v4"] #modernbb button.mm-groups-filter[aria-pressed="true"] { box-shadow: inset 0 2px 0 #eed7a666, inset 0 -2px 1px #584127bb, 0 1px 0 #241e16, 0 1.5px 0 #ad90554d, 0 3px 6.5px -4px #000b; }
 
 /* Un socle à la bienvenue et aux partenaires, avec les gravures déjà créées. */
-html[data-mm-theme="v4"] #modernbb .hl_qeel_last { background-image: var(--mm-v4-orbit), radial-gradient(ellipse at 50% 0%, #a08b5933, transparent 65%), linear-gradient(145deg, #1a3048, #081423); background-size: 160px 160px, 100% 100%, 100% 100%; background-position: center -45px, 0 0, 0 0; background-repeat: no-repeat; border-color: #b5a2728c #7386a066 #15253b #9d927078; box-shadow: inset 0 0 0 3px #b49b5733, var(--mm-v4-rim), var(--mm-v4-base); }
+html[data-mm-theme="v4"] #modernbb .hl_qeel_last { background-image: var(--mm-v4-orbit), radial-gradient(ellipse at 50% 0%, #a08b5933, transparent 65%), linear-gradient(145deg, #1a3048, #081423); background-size: 160px 160px, 100% 100%, 100% 100%; background-position: center -45px, 0 0, 0 0; background-repeat: no-repeat; border-color: #b5a2728c #7386a066 #15253b #9d927078; box-shadow: inset 0 0 0 3px #b49b5733, var(--mm-v4-rim), var(--mm-v4-rest); }
 html[data-mm-theme="v4"] #modernbb .hl_qeel_bottom { background-image: var(--mm-v4-laurel), var(--mm-v4-lit-surface); background-size: 80px 80px, 100% 100%, 100% 100%, 100% 100%; background-position: left bottom, 0 0, 0 0, 0 0; background-repeat: no-repeat; }
-html[data-mm-theme="v4"] #modernbb .hl_partner { background: linear-gradient(135deg, #29405a, #0e1c31); box-shadow: inset 0 1px 0 #93adbf55, inset 0 -2px 0 #0009, 0 3px 0 #020711, 0 7px 8px -3px #000c; }
+html[data-mm-theme="v4"] #modernbb .hl_partner { background: linear-gradient(135deg, #29405a, #0e1c31); box-shadow: inset 0 1px 0 #93adbf55, inset 0 -2px 0 #0009, 0 1px 0 #020711, 0 3px 5.5px -3px #000c; }
 
 @media (hover: hover) and (pointer: fine) {
   html[data-mm-theme="v4"] #modernbb .hl_top_ann_middle:hover,
