@@ -259,7 +259,7 @@
   }
   function confirmedDelivery(){
     try{var receipt=JSON.parse(sessionStorage.getItem(PREFIX+'delivery')||'null');if(!receipt||Date.now()-receipt.at>600000)return;
-      var success=receipt.confirmed||(/^\/post(?:\?|$)/.test(location.pathname+location.search)&&!document.querySelector('#text_editor_textarea,.post')&&/Votre message a (?:bien )?été enregistré[.!]/.test((document.querySelector('#main-content')||document.body).textContent));
+      var success=receipt.confirmed||(/^\/post(?:\?|$)/.test(location.pathname+location.search)&&!document.querySelector('#text_editor_textarea,.post')&&/(?:Votre message a (?:bien )?été enregistré|Message enregistré avec succès)[.!]/.test((document.querySelector('#main-content')||document.body).textContent));
       if(success){var p=readRecord(receipt.id);if(p)cleanupDelivery(p);sessionStorage.removeItem(PREFIX+'delivery');}
     }catch(e){/* Keep the recovery copies whenever confirmation or cleanup fails. */}
   }
