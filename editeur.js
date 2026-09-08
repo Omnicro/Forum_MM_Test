@@ -231,10 +231,13 @@
       if(resume){resume=false;resumedEvent=e;ctx.original.value=ctx.getText();return;}
       if(name==='preview'){ctx.save(true);return;}
       if(name!=='post'&&submitter!==send){ctx.save(true);return;}
-      e.preventDefault();e.stopImmediatePropagation();if(submitting)return;
-      if(!ctx.save(true)){storageFailure(submitter);return;}
+      if(submitting){e.preventDefault();e.stopImmediatePropagation();return;}
+      if(!ctx.save(true)){e.preventDefault();e.stopImmediatePropagation();storageFailure(submitter);return;}
       var linked=Object.keys(ctx.links).filter(function(id){return !!readRecord(id);});
-      if(!linked.length){proceed(submitter,false,false);return;}
+      // Keep the original native submission: requestSubmit() inside its own
+      // submit event is ignored by browsers' re-entrant submission guard.
+      if(!linked.length){ctx.original.value=ctx.getText();return;}
+      e.preventDefault();e.stopImmediatePropagation();
       var d=modal('Envoyer votre message','Une copie de récupération a été enregistrée.',true);d.content.appendChild(node('p','',linked.length+' brouillon'+(linked.length>1?'s sont liés':' est lié')+' à cette rédaction.'));
       var keep=node('label','mm-send-choice'),keepInput=node('input'),keepText=node('span');keepInput.type='radio';keepInput.name='mm-draft-after-send';keepInput.checked=true;keepText.appendChild(node('strong','','Garder mes brouillons'));keepText.appendChild(node('small','','Ils resteront disponibles dans votre atelier.'));keep.appendChild(keepInput);keep.appendChild(keepText);
       var clean=node('label','mm-send-choice'),cleanInput=node('input'),cleanText=node('span');cleanInput.type='radio';cleanInput.name='mm-draft-after-send';cleanText.appendChild(node('strong','','Supprimer après publication'));cleanText.appendChild(node('small','','Après l’envoi, confirmez que le message est publié pour autoriser le nettoyage. Un échec conserve vos textes.'));clean.appendChild(cleanInput);clean.appendChild(cleanText);d.content.appendChild(keep);d.content.appendChild(clean);
