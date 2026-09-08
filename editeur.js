@@ -5,7 +5,7 @@
   'use strict';
   if (document.getElementById('mm-write-nav')) return;
   var PREFIX = 'mm-writer-v1:', context = null, stack = [], toastTimer, previousOverflow;
-  var pageId = uid(), changing = false;
+  var pageId = uid(), lastWriteTime = 0;
   function uid() { return Date.now().toString(36) + '-' + (window.crypto && crypto.randomUUID ? crypto.randomUUID() : Math.random().toString(36).slice(2)); }
   function node(tag, cls, text) { var e = document.createElement(tag); if (cls) e.className = cls; if (text !== undefined) e.textContent = text; return e; }
   function button(text, fn, cls) { var e = node('button', 'mm-writer-button' + (cls ? ' ' + cls : ''), text); e.type = 'button'; e.addEventListener('click', fn); return e; }
@@ -21,6 +21,9 @@
   }
   function writeRecord(record) {
     record.v = 1;
+    var previous=readRecord(record.id);
+    record.updated=Math.max(Date.now(),lastWriteTime+1,previous?previous.updated+1:0);
+    lastWriteTime=record.updated;
     var encoded = JSON.stringify(record);
     localStorage.setItem(PREFIX + record.id, encoded);
     if (localStorage.getItem(PREFIX + record.id) !== encoded) throw new Error('La copie locale n’a pas pu être vérifiée.');
@@ -191,6 +194,10 @@
     }
     function styleFrame(){try{var doc=frame.contentDocument;if(!doc||!doc.body||frameDoc===doc)return;frameDoc=doc;var style=node('style');style.textContent='html,body{background:#091421!important;color:#e4edf7!important}body{margin:0!important;padding:18px!important;box-sizing:border-box;font:14px/1.65 Calibri,Arial,sans-serif!important;overflow-wrap:break-word}a{color:#9fd7f4!important}blockquote{border-left:2px solid #8db3cb;padding-left:12px;color:#c4d7e7}code{color:#c3ddeb;background:#142c40}::selection{background:#365c7b;color:#fff}';doc.head.appendChild(style);doc.body.setAttribute('aria-label','Texte du message en mode visuel');doc.addEventListener('input',changed);doc.addEventListener('keyup',changed);doc.addEventListener('keydown',expand,true);doc.addEventListener('selectionchange',rememberSelection);new MutationObserver(changed).observe(doc.body,{childList:true,characterData:true,subtree:true});}catch(e){/* SCEditor handles frame creation. */}}
     context={original:original,form:form,target:target,links:{},getText:getText,subject:subject,setSubject:function(v){if(subjectField)subjectField.value=v;},setText:setText,save:save,snapshot:snapshot,rememberSelection:rememberSelection,insertFragment:insertFragment,recoveryId:recoveryId};
+    // A native preview creates a new document. Carry draft associations forward
+    // only when the server returned the exact same text, title and destination.
+    var matchingCopy=records('recovery').find(function(r){return r.context&&r.context.key===target.key&&(r.text===getText()||r.text===original.defaultValue)&&(r.subject||'')===subject()&&Object.keys(r.links||{}).length;});
+    if(matchingCopy){context.links=Object.assign({},matchingCopy.links);if(inSource()&&matchingCopy.text===original.defaultValue&&source.value!==matchingCopy.text){source.value=matchingCopy.text;original.value=matchingCopy.text;emit();}}
     source.addEventListener('input',changed);source.addEventListener('keyup',changed);source.addEventListener('keydown',expand,true);source.addEventListener('scroll',requestPaint,{passive:true});source.addEventListener('select',rememberSelection);source.addEventListener('blur',function(){rememberSelection();save(false);});
     if(subjectField)subjectField.addEventListener('input',changed);
     api.bind('valuechanged',changed);box.addEventListener('click',function(){setTimeout(changed,0);});
