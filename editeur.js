@@ -152,9 +152,11 @@
     var head=node('div','mm-composer-head'),heading=node('div','mm-composer-heading');heading.appendChild(node('small','','Mythic Meridian'));heading.appendChild(node('span','','Atelier de rédaction'));head.appendChild(heading);
     var tools=node('div','mm-tools');head.appendChild(tools);box.parentNode.insertBefore(head,original);
     tools.appendChild(button('Enregistrer un brouillon',function(){var r=newRecord('draft',getText(),subject());r.name=subject()||'Brouillon du '+time(Date.now());manager('draft',r);},'mm-primary'));
-    tools.appendChild(button('Mes brouillons',function(){manager('draft');}));tools.appendChild(button('Fragments',function(){manager('fragment');}));
-    var meta=node('div','mm-composer-meta'),state=node('span','mm-save-state','Votre texte est prêt à être rédigé.'),shortcuts=node('span');state.setAttribute('role','status');state.setAttribute('aria-live','polite');
-    shortcuts.appendChild(node('span','','Fragments : '));shortcuts.appendChild(node('kbd','','Ctrl'));shortcuts.appendChild(node('span','',' + '));shortcuts.appendChild(node('kbd','','Espace'));meta.appendChild(state);meta.appendChild(shortcuts);
+    tools.appendChild(button('Mes brouillons',function(){manager('draft');}));
+    var fragmentsButton=button('Fragments',function(){manager('fragment');});
+    var fragmentsHelp='Tapez le raccourci d’un fragment (ex. #texte1), puis Ctrl + Espace juste après pour le remplacer par le texte enregistré. Cliquez ici pour gérer vos fragments.';
+    fragmentsButton.title=fragmentsHelp;fragmentsButton.setAttribute('aria-description',fragmentsHelp);tools.appendChild(fragmentsButton);
+    var meta=node('div','mm-composer-meta'),state=node('span','mm-save-state','Votre texte est prêt à être rédigé.');state.setAttribute('role','status');state.setAttribute('aria-live','polite');meta.appendChild(state);
     var toggle=node('button','','Balises colorées');toggle.type='button';toggle.setAttribute('aria-pressed','true');meta.appendChild(toggle);box.parentNode.insertBefore(meta,box.nextSibling);
     var underlay=node('div','mm-source-highlight'),paint=node('pre');underlay.setAttribute('aria-hidden','true');underlay.appendChild(paint);box.appendChild(underlay);box.classList.add('mm-highlight-on');source.setAttribute('aria-label','Texte du message');
     source.setAttribute('spellcheck','true');
@@ -172,8 +174,8 @@
     function snapshot(id){var now=Date.now();return {v:1,id:id||recoveryId,kind:'recovery',name:subject()||'Rédaction — '+time(now),text:getText(),subject:subject(),context:target,links:Object.assign({},context.links),created:now,updated:now,page:pageId,chain:context.chain};}
     function save(force){
       clearTimeout(saveTimer);var text=getText(),title=subject(),value=JSON.stringify([text,title,context.links]);if(!force&&(!text&&!title||value===lastSaved))return true;
-      try{var copy=snapshot();writeRecord(copy);lastSaved=value;state.classList.remove('mm-error');state.textContent='Copie locale à '+new Date().toLocaleTimeString('fr-FR',{hour:'2-digit',minute:'2-digit'});return true;}
-      catch(e){state.classList.add('mm-error');state.textContent='Copie locale impossible — exportez votre texte';return false;}
+      try{var copy=snapshot();writeRecord(copy);lastSaved=value;state.classList.remove('mm-error');state.textContent='Brouillon sauvegardé à '+new Date().toLocaleTimeString('fr-FR',{hour:'2-digit',minute:'2-digit'});return true;}
+      catch(e){state.classList.add('mm-error');state.textContent='Sauvegarde du brouillon impossible — exportez votre texte';return false;}
     }
     function tokenHTML(text){var re=/<!--[\s\S]*?-->|<\/?[a-zA-Z][^>]*>|\[\/?[a-zA-Z][^\]\r\n]*\]|\[\*\]/g,at=0,result='',m;while((m=re.exec(text))){result+=escapeHTML(text.slice(at,m.index));var cls=m[0].indexOf('<!--')===0?'comment':m[0][0]==='['?'bb':'html';var token=escapeHTML(m[0]);if(cls!=='comment')token=token.replace(/(&quot;.*?&quot;|&#39;.*?&#39;)/g,'<span class="mm-token-value">$1</span>');result+='<span class="mm-token-'+cls+'">'+token+'</span>';at=re.lastIndex;}return result+escapeHTML(text.slice(at))+'\u200b';}
     function paintSource(){
