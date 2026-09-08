@@ -155,3 +155,8 @@ html .mm-composer-meta{display:grid!important;grid-template-columns:minmax(0,1fr
 html .mm-composer-meta>.mm-save-state{grid-column:2;text-align:center;min-width:0}
 html .mm-composer-meta>button{grid-column:3;justify-self:end}
 @media(max-width:600px){html .mm-composer-meta{grid-template-columns:minmax(0,1fr) auto}html .mm-composer-meta>.mm-save-state{grid-column:1;text-align:left}html .mm-composer-meta>button{grid-column:2}}
+
+/* Compteur d’origine au bord gauche, directement sous la saisie. */
+html .mm-composer-meta{padding-top:4px}
+html .mm-composer-meta>.word-count{grid-column:1;grid-row:1;justify-self:start;margin:0;text-align:left}
+@media(max-width:600px){html .mm-composer-meta>.word-count{grid-column:1 / -1}}
