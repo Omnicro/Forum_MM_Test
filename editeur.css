@@ -149,3 +149,9 @@ html:is([data-mm-theme="v1"],[data-mm-theme="v2"]) .mm-compose .mm-composer-head
 html:is([data-mm-theme="v1"],[data-mm-theme="v2"]) .mm-compose :is(.mm-composer-heading small,.mm-composer-meta){color:#b8abb6}
 html[data-mm-theme="v2"] .mm-compose #postingbox{background:linear-gradient(115deg,#b57e541a,transparent 48%),var(--couleurpanel,#141426)}
 html[data-mm-theme="v2"] .mm-compose .sceditor-toolbar{background:linear-gradient(105deg,#5031413d,transparent 65%),#111830!important}
+
+/* Le statut occupe la place centrale de l’ancienne aide Fragments. */
+html .mm-composer-meta{display:grid!important;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);align-items:center}
+html .mm-composer-meta>.mm-save-state{grid-column:2;text-align:center;min-width:0}
+html .mm-composer-meta>button{grid-column:3;justify-self:end}
+@media(max-width:600px){html .mm-composer-meta{grid-template-columns:minmax(0,1fr) auto}html .mm-composer-meta>.mm-save-state{grid-column:1;text-align:left}html .mm-composer-meta>button{grid-column:2}}
