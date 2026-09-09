@@ -1,0 +1,80 @@
+/* Mythic Meridian · Orbite, mouvements perpétuels. Préfixe isolé mmo26. */
+html .mmo26{--mmo-accent:#5a968d;--mmo-gold:#cdb47e;position:relative;isolation:isolate;width:470px;max-width:100%;margin:26px auto;color:#e6dfd1;font:12px/1.5 Calibri,Arial,sans-serif;letter-spacing:0;text-align:left;overflow-wrap:anywhere;}
+html .mmo26,html .mmo26 *,html .mmo26 *::before,html .mmo26 *::after{box-sizing:border-box;}
+html .mmo26 .mmo26-layout{display:grid;grid-template-columns:250px minmax(0,1fr);align-items:center;gap:18px;}
+html .mmo26 .mmo26-sky{position:relative;width:250px;height:250px;isolation:isolate;background:radial-gradient(ellipse,#5a968d18,transparent 68%);}
+html .mmo26 .mmo26-sky::before{content:"";position:absolute;inset:8%;border-radius:50%;background:radial-gradient(circle at 10% 25%,#cfb775 0 1px,transparent 2px),radial-gradient(circle at 90% 70%,#c9dedd 0 1px,transparent 2px),radial-gradient(circle at 76% 9%,#cfb775 0 1px,transparent 2px);animation:mmo26-breathe 7s ease-in-out infinite;pointer-events:none;}
+html .mmo26 img{display:block;width:100%;height:100%;max-width:100%;max-height:none;border:0;margin:0;object-fit:cover;object-position:center;filter:saturate(.75) contrast(1.04);}
+html .mmo26 .mmo26-core,html .mmo26 .mmo26-guest,html .mmo26 .mmo26-satellite{position:absolute;border-radius:50%;padding:5px;background:#0a121e;border:1px solid #cdb47e88;box-shadow:0 10px 25px #0009,0 0 0 3px #0c1521;overflow:hidden;}
+html .mmo26 .mmo26-core{inset:51px;z-index:2;}
+html .mmo26 .mmo26-core img,html .mmo26 .mmo26-guest img,html .mmo26 .mmo26-satellite img{border-radius:50%;}
+html .mmo26 .mmo26-ring{position:absolute;inset:9px;border:1px solid #cdb47e6b;border-radius:50%;animation:mmo26-spin 32s linear infinite;pointer-events:none;}
+html .mmo26 .mmo26-ring::before{content:"";position:absolute;inset:7px;border:1px dashed #cdb47e42;border-radius:50%;}
+html .mmo26 .mmo26-ring::after{content:"";position:absolute;left:50%;top:-3px;width:5px;height:5px;border-radius:50%;background:#ddc796;box-shadow:0 0 9px 2px #d2b77a7a;}
+html .mmo26 .mmo26-r2{inset:24px;border-color:#5a968d85;animation-duration:23s;animation-direction:reverse;}
+html .mmo26 .mmo26-r2::before{border-style:solid;inset:3px;border-color:#5a968d25;}
+html .mmo26 .mmo26-r3{inset:40px;border-style:dotted;animation-duration:47s;}
+html .mmo26 .mmo26-r3::before{display:none;}
+html .mmo26 .mmo26-text{position:relative;z-index:5;min-width:0;}
+html .mmo26 .mmo26-eyebrow{display:block;font:8px/1.7 Calibri,Arial,sans-serif;letter-spacing:2.4px;text-transform:uppercase;color:#aebdbd;}
+html .mmo26 .mmo26-name{display:block;margin:10px 0 15px;font:500 52px/1 "Cormorant Garamond",Georgia,serif;letter-spacing:-1px;color:var(--mmo-gold);text-shadow:0 3px 8px #000;}
+html .mmo26 .mmo26-name::after{content:"";display:block;height:1px;margin-top:16px;background:linear-gradient(90deg,#cdb47e99,#5a968d55,transparent);}
+html .mmo26 .mmo26-quote{display:block;font:italic 16px/1.45 "Cormorant Garamond",Georgia,serif;color:#e5ded0;}
+html .mmo26 .mmo26-credit{display:block;margin-top:14px;font:10px/1.5 Calibri,Arial,sans-serif;color:#9ba8b5;}
+html .mmo26 .mmo26-credit b{color:var(--mmo-accent);font-weight:500;}
+html .mmo26 .mmo26-spark{position:absolute;right:25px;top:25px;color:var(--mmo-gold);font:25px/1 Georgia,serif;text-shadow:0 0 12px #cfb77588;animation:mmo26-breathe 5s ease-in-out infinite;z-index:4;}
+/* Astrolabe : la contre-rotation maintient le satellite à la verticale. */
+html .mmo26-astrolabe .mmo26-carrier{position:absolute;inset:22px;z-index:3;animation:mmo26-spin 36s linear infinite;}
+html .mmo26-astrolabe .mmo26-satellite{width:66px;height:66px;left:50%;top:-22px;margin-left:-33px;padding:3px;animation:mmo26-spin 36s linear infinite reverse;}
+/* Éclipse : lumière périphérique, jamais sur les visages. */
+html .mmo26-eclipse .mmo26-core{inset:29px 51px 73px 51px;}
+html .mmo26-eclipse .mmo26-ring{inset:17px 39px 61px;border:0;background:conic-gradient(from 0deg,transparent 5%,#d7bb8233 45%,#e8d09d 60%,#72aca5 74%,transparent 82%);-webkit-mask:radial-gradient(transparent 65%,#000 66%);mask:radial-gradient(transparent 65%,#000 66%);filter:drop-shadow(0 0 5px #cdb47e66);animation-duration:13s;}
+html .mmo26-eclipse .mmo26-ring::before,html .mmo26-eclipse .mmo26-ring::after{display:none;}
+html .mmo26-eclipse .mmo26-r2{inset:5px 27px 49px;background:none;border:1px dashed #cdb47e66;mask:none;-webkit-mask:none;animation-duration:42s;}
+html .mmo26-eclipse .mmo26-r3{inset:0 22px 44px;background:none;border:1px solid #5a968d33;mask:none;-webkit-mask:none;}
+html .mmo26-eclipse .mmo26-guest{width:100px;height:100px;right:15px;bottom:8px;z-index:3;animation:mmo26-float 8s ease-in-out infinite;}
+html .mmo26-eclipse .mmo26-spark{left:29px;right:auto;top:183px;}
+/* Binaire : deux portraits sur des plans opposés. */
+html .mmo26-binaire{width:450px;}
+html .mmo26-binaire .mmo26-layout{display:block;}
+html .mmo26-binaire .mmo26-sky{width:100%;height:252px;}
+html .mmo26-binaire .mmo26-core{inset:auto;left:32px;top:24px;width:160px;height:160px;animation:mmo26-float 9s ease-in-out infinite;}
+html .mmo26-binaire .mmo26-guest{right:34px;top:83px;width:138px;height:138px;z-index:3;animation:mmo26-float 9s ease-in-out -4.5s infinite;}
+html .mmo26-binaire .mmo26-ring{inset:auto;left:14px;top:6px;width:196px;height:196px;animation-duration:31s;}
+html .mmo26-binaire .mmo26-r2{left:auto;right:15px;top:64px;width:176px;height:176px;animation-duration:21s;}
+html .mmo26-binaire .mmo26-r3{left:50%;top:34px;margin-left:-105px;width:210px;height:180px;opacity:.35;}
+html .mmo26-binaire .mmo26-bond{position:absolute;left:70px;right:65px;top:50%;height:1px;background:linear-gradient(90deg,transparent,#cdb47e,transparent);transform:rotate(20deg);}
+html .mmo26-binaire .mmo26-spark{left:50%;top:22px;right:auto;}
+html .mmo26-binaire .mmo26-text{text-align:center;margin:3px 30px 0;}
+html .mmo26-binaire .mmo26-name{margin:4px 0 8px;}
+html .mmo26-binaire .mmo26-name::after{width:140px;margin:10px auto;background:linear-gradient(90deg,transparent,#cdb47e88,transparent);}
+/* Orrery : anneaux en perspective, trajectoires continues sans JavaScript. */
+html .mmo26-orrery .mmo26-sky{perspective:600px;}
+html .mmo26-orrery .mmo26-core{inset:58px;box-shadow:0 15px 30px #000b,0 0 24px #5a968d33;}
+html .mmo26-orrery .mmo26-ring{inset:8px;border-width:2px;animation:mmo26-armillary 18s linear infinite;z-index:3;}
+html .mmo26-orrery .mmo26-r2{inset:16px;animation:mmo26-armillary2 25s linear infinite;border-width:1px;z-index:1;}
+html .mmo26-orrery .mmo26-r3{inset:27px;animation:mmo26-spin 42s linear infinite reverse;border:1px dashed #cdb47e55;z-index:0;}
+html .mmo26-orrery .mmo26-guest{width:68px;height:68px;bottom:19px;right:21px;padding:3px;z-index:4;animation:mmo26-float 7s ease-in-out infinite;}
+html .mmo26-orrery .mmo26-spark{left:22px;top:26px;right:auto;font-size:17px;}
+/* Commande native, sans identifiant ni script. */
+html .mmo26 .mmo26-pause{margin:12px 0 0;text-align:right;border:0;padding:0;}
+html .mmo26 .mmo26-pause summary{display:inline-block;cursor:pointer;color:#94a8b3;font:9px/1.5 Calibri,Arial,sans-serif;letter-spacing:.4px;border-bottom:1px dotted #94a8b34d;}
+html .mmo26 .mmo26-pause summary::marker{content:"";}
+html .mmo26 .mmo26-pause b{display:none;font-weight:400;}
+html .mmo26 .mmo26-pause[open] span{display:none;}
+html .mmo26 .mmo26-pause[open] b{display:inline;}
+html .mmo26:has(>.mmo26-pause[open]) *,html .mmo26:has(>.mmo26-pause[open]) *::before,html .mmo26:has(>.mmo26-pause[open]) *::after{animation-play-state:paused!important;}
+@keyframes mmo26-spin{to{transform:rotate(360deg);}}
+@keyframes mmo26-float{0%,100%{transform:translateY(3px);}50%{transform:translateY(-5px);}}
+@keyframes mmo26-breathe{0%,100%{opacity:.4;transform:scale(.9);}50%{opacity:1;transform:scale(1.06);}}
+@keyframes mmo26-armillary{from{transform:rotate(-27deg) rotateX(64deg) rotateZ(0deg);}to{transform:rotate(-27deg) rotateX(64deg) rotateZ(360deg);}}
+@keyframes mmo26-armillary2{from{transform:rotate(49deg) rotateX(56deg) rotateZ(360deg);}to{transform:rotate(49deg) rotateX(56deg) rotateZ(0deg);}}
+html .mmo26-gallery{max-width:640px;width:100%;margin:25px auto;box-sizing:border-box;}
+html .mmo26-gallery .mmo26-demo{padding:25px 20px;margin:0 0 28px;border:1px solid #cdb47e30;background:radial-gradient(ellipse at 20% 40%,#10232b45,transparent 65%),#080e1980;}
+html .mmo26-gallery h3{font:26px/1.3 "Cormorant Garamond",Georgia,serif;color:#d5bd8c;margin:0 0 6px;letter-spacing:.6px;}
+html .mmo26-gallery p{font:12px/1.6 Calibri,Arial,sans-serif;color:#aeb9c3;margin:0 0 16px;}
+html .mmo26-gallery .mmo26-code{border-top:1px solid #cdb47e30;margin-top:20px;padding-top:12px;}
+html .mmo26-gallery .mmo26-code summary{color:#bacabd;font:11px/1.5 Calibri,Arial,sans-serif;cursor:pointer;}
+html .mmo26-gallery pre{white-space:pre-wrap;overflow-wrap:anywhere;max-height:210px;overflow:auto;background:#060b14;border:1px solid #53677566;padding:12px;color:#cbd2da;font:11px/1.5 Consolas,monospace;}
+@media(max-width:550px){html .mmo26 .mmo26-layout{display:flex;flex-direction:column;gap:10px;}html .mmo26 .mmo26-text{text-align:center;width:100%;}html .mmo26 .mmo26-name::after{max-width:160px;margin-left:auto;margin-right:auto;}html .mmo26 .mmo26-name{font-size:46px;}html .mmo26-binaire .mmo26-text{margin:0;}html .mmo26-binaire .mmo26-core{left:12px;width:136px;height:136px;}html .mmo26-binaire .mmo26-guest{right:12px;width:115px;height:115px;top:116px;}html .mmo26-binaire .mmo26-ring{left:0;width:160px;height:160px;}html .mmo26-binaire .mmo26-r2{left:auto;right:0;top:104px;width:138px;height:138px;}html .mmo26-binaire .mmo26-r3{left:50%;top:36px;}html .mmo26-gallery .mmo26-demo{padding:20px 10px;}html .mmo26 .mmo26-pause{text-align:center;}}
+@media(prefers-reduced-motion:reduce){html .mmo26 *,html .mmo26 *::before,html .mmo26 *::after{animation:none!important;transition:none!important;}html .mmo26-orrery .mmo26-ring{transform:rotate(-27deg) rotateX(64deg);}html .mmo26-orrery .mmo26-r2{transform:rotate(49deg) rotateX(56deg);}html .mmo26-orrery .mmo26-r3{transform:none;}html .mmo26 .mmo26-pause{display:none;}}
