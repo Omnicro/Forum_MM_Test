@@ -77,6 +77,16 @@ html .mms26-parallaxe .mms26-quote{text-align:center;margin:12px 14px 0;font-siz
 html .mms26-parallaxe .mms26-kicker{text-align:center;margin:10px 0;}
 html .mms26-parallaxe:is(:hover,:focus-visible) .mms26-card:nth-of-type(1){transform:translate(-7px,-6px) rotate(-12deg) rotateY(8deg);}
 html .mms26-parallaxe:is(:hover,:focus-visible) .mms26-card+.mms26-card{transform:translate(7px,-6px) rotate(12deg) rotateY(-8deg);}
+/* Hauteurs compactes : conserver la composition dans le gabarit d'Orrery. */
+html .mms26-reliquaire .mms26-arch{height:156px;}
+html .mms26-reliquaire .mms26-kicker{margin-top:9px;}
+html .mms26-parallaxe{padding-top:8px;}
+html .mms26-parallaxe .mms26-deck{height:160px;}
+html .mms26-parallaxe .mms26-card{height:145px;width:130px;left:52px;padding:4px;}
+html .mms26-parallaxe .mms26-card+.mms26-card{left:auto;right:52px;top:10px;}
+html .mms26-parallaxe .mms26-seal{top:118px;width:37px;height:37px;}
+html .mms26-parallaxe .mms26-monogram{font-size:178px;inset:-17px 0 auto;}
+html .mms26-parallaxe .mms26-quote{margin-top:8px;}
 /* Démonstration et codes réutilisables, uniquement dans la galerie dédiée. */
 html .mms26-gallery{width:620px;max-width:100%;margin:20px auto;box-sizing:border-box;}
 html .mms26-gallery .mms26-demo{padding:26px 18px 32px;margin:0 0 25px;border:1px solid #c7ae7833;background:#080e1980;}
