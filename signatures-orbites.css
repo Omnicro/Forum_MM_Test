@@ -62,7 +62,7 @@ html .mmo26-binaire .mmo26-name{margin:10px 0 15px;}
 html .mmo26-binaire .mmo26-name::after{width:auto;margin:16px 0 0;background:linear-gradient(90deg,#cdb47e99,#5a968d55,transparent);}
 /* Orrery : anneaux en perspective, trajectoires continues sans JavaScript. */
 html .mmo26-orrery .mmo26-sky{perspective:600px;}
-html .mmo26-orrery .mmo26-core{inset:58px;box-shadow:0 15px 30px #000b,0 0 24px #5a968d33;}
+html .mmo26-orrery .mmo26-core{inset:58px;z-index:4;box-shadow:0 15px 30px #000b,0 0 24px #5a968d33;}
 html .mmo26-orrery .mmo26-ring{inset:8px;border-width:2px;animation:mmo26-armillary 18s linear infinite;z-index:3;}
 html .mmo26-orrery .mmo26-r2{inset:16px;animation:mmo26-armillary2 25s linear infinite;border-width:1px;z-index:1;}
 html .mmo26-orrery .mmo26-r3{inset:27px;animation:mmo26-spin 42s linear infinite reverse;border:1px dashed #cdb47e55;z-index:0;}
