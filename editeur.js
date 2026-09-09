@@ -66,7 +66,8 @@
     ['mode','t','f','p'].forEach(function(k){var f=form.querySelector('[name="'+k+'"]'),v=f&&f.value||url.searchParams.get(k);if(v)query.set(k,v);});
     if(!query.has('t')){var topic=location.pathname.match(/^\/t(\d+)/);if(topic)query.set('t',topic[1]);}
     if(!query.has('mode')&&query.has('t'))query.set('mode','reply');
-    var target=safeTarget('/post?'+query.toString()); return {url:target,key:target||location.pathname,title:(document.querySelector('h1')||document.querySelector('.page-title')||document).textContent.slice(0,150)};
+    var target=safeTarget('/post?'+query.toString()),heading=document.querySelector('h1,.page-title');
+    return {url:target,key:target||location.pathname,title:((heading&&heading.textContent)||document.title||'Rédaction').trim().slice(0,150)};
   }
   function newRecord(kind, text, subject) {var now=Date.now();return {v:1,id:kind+'-'+uid(),kind:kind,name:'',text:text||'',subject:subject||'',created:now,updated:now,context:context?context.target:null};}
   function loadRecord(record) {
@@ -140,9 +141,9 @@
 
   function bindEditor(original,box,api){
     var form=original.form;if(!form||form.classList.contains('mm-compose'))return;
-    form.classList.add('mm-compose');document.documentElement.classList.add('mm-writer-enabled');
     var source=box.querySelector('textarea'),frame=box.querySelector('iframe'),subjectField=form.querySelector('input[name="subject"]');
     if(!source||!frame)return;
+    form.classList.add('mm-compose');document.documentElement.classList.add('mm-writer-enabled');
     var target=currentTarget(form),recoveryId='recovery-'+uid(),saveTimer,renderFrame,lastSaved='',selection=null,frameDoc=null,highlight=true,lastPaint=null;
     var message=form.querySelector('#message-box'),smileys=form.querySelector('#smiley-box');
     // Moving an existing iframe or its ancestors reloads its document. Keep both
@@ -272,7 +273,7 @@
   function boot(){
     if(location.pathname.indexOf('/admin')===0)return;
     var original=document.querySelector('textarea#text_editor_textarea[name="message"]');
-    if(original){var tries=0;function attempt(){var box=original.parentNode.querySelector('.sceditor-container'),api=window.jQuery&&window.jQuery(original).data('sceditor');if(box&&api){bindEditor(original,box,api);return;}if(++tries<80)setTimeout(attempt,250);}attempt();}
+    if(original){var tries=0;function attempt(){var box=original.parentNode.querySelector('.sceditor-container'),api=window.jQuery&&window.jQuery(original).data('sceditor');if(box&&api&&box.querySelector('textarea')&&box.querySelector('iframe')){bindEditor(original,box,api);return;}if(++tries<80)setTimeout(attempt,250);}attempt();}
     showPending();
   }
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',boot);else boot();
