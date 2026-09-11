@@ -1,0 +1,7 @@
+/* Collections 2026 : hauteur et largeur à 75 %, proportions et animations conservées.
+   Zoom participe à la mise en page : aucun espace vide à l'ancienne hauteur. */
+html .mms26,
+html .mmo26,
+html .mmh26 {
+  zoom: .75;
+}
