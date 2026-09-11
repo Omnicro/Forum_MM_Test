@@ -9,7 +9,7 @@
   raw=(raw||'').trim();if(!raw)throw Error('Ce lien ne contient pas de destination.');
   var u=new URL(raw,location.href),name;
   if(!/^https?:$/.test(u.protocol)||u.origin!==location.origin)throw Error('Les mini-fiches doivent être sur ce même forum.');
-  if(u.hash){name=decodeURIComponent(u.hash.slice(1)).replace(/^mm-pnj-/, '');u.hash='';}
+  if(u.hash){var hash=decodeURIComponent(u.hash.slice(1));name=(hash.indexOf('/')>=0?hash.slice(hash.lastIndexOf('/')+1):hash).replace(/^mm-pnj-/, '');u.hash='';}
   else {var slash=u.pathname.lastIndexOf('/');name=decodeURIComponent(u.pathname.slice(slash+1));u.pathname=u.pathname.slice(0,slash)||'/';}
   if(!name||name.length>120)throw Error('Le nom de la fiche est manquant ou invalide.');
   return {url:u,name:name};
