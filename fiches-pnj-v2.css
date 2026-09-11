@@ -1,4 +1,7 @@
 /* Mythic Meridian — portraits PNJ V2. Exclusivement classes mm-pnj2 / mm-pnj-mini. */
+/* Forumactif transforme les retours du code en <br> : masquer uniquement ceux de structure. */
+html .mm-pnj2>br,html .mm-pnj2>div:not(.mm-pnj-mini)>br,html .mm-pnj2>liens>br,html .mm-pnj>header>br,html .mm-pnj>section>br{display:none!important}
+html .mm-pnj2 bio>br:has(+p),html .mm-pnj2 bio>p+br,html .mm-pnj>section>div>br:has(+p),html .mm-pnj>section>div>p+br{display:none!important}
 html .mm-pnj2{--pnj-accent:#5A968D;--pnj-rgb:90,150,141;display:grid;grid-template-columns:200px minmax(0,1fr);gap:0;width:100%;max-width:584px;box-sizing:border-box;margin:24px auto;padding:12px;background:radial-gradient(ellipse at 100% 0,rgba(var(--pnj-rgb),.12),transparent 65%),#090f1b;border:1px solid rgba(var(--pnj-rgb),.42);border-radius:5px;color:#dce1e9;font:13px/1.65 Calibri,Arial,sans-serif;text-align:left;box-shadow:0 14px 30px #0004,inset 0 1px #ffffff0a;isolation:isolate;position:relative;container-type:inline-size}
 html .mm-pnj2::before{content:"";position:absolute;left:18px;right:18px;top:-1px;height:1px;background:linear-gradient(90deg,transparent,var(--pnj-accent),transparent);pointer-events:none}
 html .mm-pnj2>img{display:block!important;width:200px!important;max-width:100%!important;height:auto!important;max-height:none!important;aspect-ratio:auto!important;object-fit:contain!important;align-self:start;margin:0!important;padding:0!important;border:0!important;border-radius:2px;filter:none!important;transform:none!important}
