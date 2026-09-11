@@ -17,20 +17,21 @@ html .mm-pnj2 lien[data_lien],html .mm-pnj2 lien[data-lien]{cursor:pointer;paddi
 html .mm-pnj2 lien[data_lien]::after,html .mm-pnj2 lien[data-lien]::after{content:'↗';position:absolute;right:10px;color:var(--pnj-accent);font-size:14px}
 html .mm-pnj2 lien[role=button]:hover{transform:translateY(-2px);background:rgba(var(--pnj-rgb),.17);border-color:var(--pnj-accent);box-shadow:0 5px 12px #0004}
 html .mm-pnj2 :focus-visible,html .mm-pnj-mini :focus-visible{outline:2px solid var(--pnj-accent,#5A968D);outline-offset:3px}
-html dialog.mm-pnj-mini{box-sizing:border-box;width:min(520px,calc(100vw - 32px));max-height:85vh;overflow:auto;scrollbar-width:none;padding:0;border:1px solid var(--pnj-accent,#5A968D);border-radius:5px;background:#0b1320;color:#dce1e9;box-shadow:0 28px 90px #000b;font:14px/1.65 Calibri,Arial,sans-serif;text-align:left}
+html .mm-pnj2:has(>.mm-pnj-mini:not([hidden])){z-index:20}
+html .mm-pnj2>.mm-pnj-mini{display:block;position:absolute;z-index:30;box-sizing:border-box;margin:0!important;width:370px;max-width:calc(100% - 24px);max-height:min(480px,70vh);overflow:auto;scrollbar-width:none;padding:0;border:1px solid var(--pnj-accent,#5A968D);border-radius:4px;background:linear-gradient(135deg,rgba(var(--pnj-rgb),.12),transparent 65%),#0b1320;color:#dce1e9;box-shadow:0 20px 38px #0009,0 1px 0 #ffffff0a inset;font:13px/1.6 Calibri,Arial,sans-serif;text-align:left;opacity:0;transform:translateY(-9px) scaleY(.92);transform-origin:var(--pnj-pointer,30px) top;transition:opacity .2s ease,transform .28s cubic-bezier(.2,.8,.2,1)}
+html .mm-pnj2>.mm-pnj-mini[hidden]{display:none!important}
+html .mm-pnj2>.mm-pnj-mini.mm-pnj-mini-open{opacity:1;transform:translateY(0) scaleY(1)}
 html .mm-pnj-mini::-webkit-scrollbar{display:none}
-html .mm-pnj-mini::backdrop{background:#020713bf;backdrop-filter:blur(5px)}
-html .mm-pnj-mini[open]{animation:mm-pnj-appear .25s ease-out}
-html .mm-pnj-mini>.mm-pnj-mini-inner{padding:28px;position:relative;display:grid;grid-template-columns:minmax(0,150px) minmax(0,1fr);gap:20px}
+html .mm-pnj-mini>.mm-pnj-mini-inner{padding:22px 18px 18px;position:relative;display:grid;grid-template-columns:minmax(0,100px) minmax(0,1fr);gap:15px}
 html .mm-pnj-mini img{display:block;width:100%!important;height:auto!important;max-height:none!important;aspect-ratio:auto!important;object-fit:contain;align-self:start;border-radius:2px;margin:0!important}
-html .mm-pnj-mini h3{font:500 28px/1.15 'Cormorant Garamond',Georgia,serif;color:#e5cfad;margin:5px 0 10px;padding:0;text-transform:none;letter-spacing:normal;overflow-wrap:anywhere}
+html .mm-pnj-mini h3{font:500 24px/1.15 'Cormorant Garamond',Georgia,serif;color:#e5cfad;margin:3px 0 10px;padding:0;border:0;background:none;text-transform:none;letter-spacing:normal;overflow-wrap:anywhere}
 html .mm-pnj-mini p{font:inherit;margin:0 0 12px;color:#dce1e9;overflow-wrap:anywhere}
 html .mm-pnj-mini a{color:var(--pnj-accent,#80b5ac);font:12px/1.5 Calibri,Arial,sans-serif;text-decoration:underline}
 html .mm-pnj-mini .mm-pnj-close{position:absolute;top:4px;right:6px;background:transparent;color:#dce1e9;border:0;padding:3px 9px;font:24px/1.2 Arial;cursor:pointer}
 html .mm-pnj-mini .mm-pnj-status{grid-column:1/-1;padding-top:10px}
 @keyframes mm-pnj-appear{from{opacity:0;transform:translateY(8px) scale(.98)}to{opacity:1;transform:none}}
 @media(max-width:520px){html .mm-pnj2{grid-template-columns:1fr;max-width:380px}html .mm-pnj2>img{justify-self:center}html .mm-pnj2>div{padding:20px 6px 0}html .mm-pnj2 bio{flex:none;height:auto;max-height:240px}html .mm-pnj-mini>.mm-pnj-mini-inner{grid-template-columns:1fr}html .mm-pnj-mini img{max-width:150px;justify-self:center}}
-@media(prefers-reduced-motion:reduce){html .mm-pnj2 lien,html .mm-pnj-mini[open]{animation:none!important;transition:none!important}}
+@media(prefers-reduced-motion:reduce){html .mm-pnj2 lien,html .mm-pnj2>.mm-pnj-mini{animation:none!important;transition:none!important}}
 @container(max-width:420px){html .mm-pnj2>img{grid-column:1/-1;justify-self:center}html .mm-pnj2>div{grid-column:1/-1;padding:20px 6px 0}html .mm-pnj2 bio{flex:none;height:auto;max-height:240px}}
 /* PALETTE V2 */
 html aed.mm-pnj2{--pnj-accent:#D80353;--pnj-rgb:216,3,83}
