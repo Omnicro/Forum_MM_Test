@@ -35,17 +35,20 @@ html .mmw26 :is(.mmw26-pause,.mmw26-motion)[open] b{display:inline;}
 html .mmw26 :is(.mmw26-pause,.mmw26-motion)[open] span{display:none;}
 html .mmw26 .mmw26-motion{display:none;}
 html .mmw26:has(.mmw26-pause[open]) *,html .mmw26:has(.mmw26-pause[open]) *::before,html .mmw26:has(.mmw26-pause[open]) *::after{animation-play-state:paused!important;}
-/* Dair : le diptyque se referme autour d'un arbre à fleur des cadres. */
-html .mmw26-dair{--mmw-corner:21px 5px 17px 5px;}
+/* Dair : deux carrés autour du sceau entièrement dégagé, couronne derrière. */
+html .mmw26-dair{--mmw-corner:21px 5px 17px 5px;--mmw-gap:88px;}
 html .mmw26-dair .mmw26-second{border-radius:5px 21px 5px 17px;}
 html .mmw26-dair .mmw26-weave{inset:7px 0;}
+html .mmw26-dair:not(.mmw26-portrait){--mmw-size:122px;--mmw-corner:12px;}
+html .mmw26-dair:not(.mmw26-portrait) .mmw26-photo{aspect-ratio:1;border-radius:12px;}
+html .mmw26-dair:not(.mmw26-portrait) .mmw26-photo img{height:100%!important;aspect-ratio:1!important;object-fit:cover!important;}
 /* Entrelacs : sceau enchâssé dans le bord droit, arabesques allongées. */
 html .mmw26-entrelacs{--mmw-size:226px;--mmw-tree:70px;--mmw-tree-x:calc(50% + 96px);--mmw-tree-y:62%;--mmw-ring:102px;--mmw-corner:24px 6px 24px 6px;}
 html .mmw26-entrelacs .mmw26-photo{left:-17px;}
 html .mmw26-entrelacs .mmw26-weave{inset:0 12px;}
 html .mmw26-entrelacs .mmw26-weave::before{animation-delay:-4s;}
 /* Triade : plus de rangée supérieure, la triquetra enserre le sceau central. */
-html .mmw26-triade{--mmw-size:144px;--mmw-gap:40px;--mmw-tree:78px;--mmw-ring:110px;--mmw-corner:6px 23px 6px 23px;}
+html .mmw26-triade{--mmw-size:140px;--mmw-gap:98px;--mmw-tree:78px;--mmw-ring:110px;--mmw-corner:6px 23px 6px 23px;}
 html .mmw26-triade .mmw26-second{border-radius:23px 6px 23px 6px;}
 html .mmw26-triade .mmw26-ring{background-image:var(--mmc-trinity);animation:mmw26-trinity 16s ease-in-out infinite alternate;opacity:.52;}
 html .mmw26-triade .mmw26-weave::before{animation-delay:-7s;}
@@ -56,27 +59,27 @@ html .mmw26-nemeton .mmw26-ring{background-image:var(--mmc-leaves);opacity:.66;a
 html .mmw26-nemeton .mmw26-tree::before{background:radial-gradient(ellipse,#92ba8d22,transparent 67%);}
 html .mmw26-nemeton .mmw26-weave{inset:0 12px;}
 html .mmw26-nemeton .mmw26-weave::before{background-image:var(--mmw-filament-silver);animation-delay:-10s;}
-/* Anam : les deux images se rapprochent ; l'arbre scelle leur jointure basse. */
-html .mmw26-anam{--mmw-size:152px;--mmw-gap:18px;--mmw-tree:54px;--mmw-tree-y:calc(100% - 28px);--mmw-ring:82px;--mmw-corner:23px 5px 5px 23px;}
+/* Anam : l'arbre est au milieu du diptyque, jamais sur les images. */
+html .mmw26-anam{--mmw-size:148px;--mmw-gap:80px;--mmw-tree:62px;--mmw-tree-y:50%;--mmw-ring:94px;--mmw-corner:23px 5px 5px 23px;}
 html .mmw26-anam .mmw26-second{border-radius:5px 23px 23px 5px;}
-html .mmw26-anam .mmw26-scene{padding-bottom:18px;}
+html .mmw26-anam .mmw26-scene{padding-bottom:12px;}
 html .mmw26-anam .mmw26-ring{opacity:.45;}
 html .mmw26-anam .mmw26-weave{inset:12px 0 2px;}
 /* Portraits : même ratio naturel, une largeur modeste et aucun espace vide forcé. */
-html .mmw26.mmw26-portrait{width:310px;--mmw-size:86px;--mmw-gap:30px;--mmw-tree:62px;--mmw-ring:94px;}
-html .mmw26-portrait .mmw26-scene{min-height:90px;padding-top:10px;padding-bottom:10px;}
+html .mmw26.mmw26-portrait{width:340px;--mmw-size:100px;--mmw-gap:84px;--mmw-tree:68px;--mmw-ring:100px;}
+html .mmw26-portrait .mmw26-scene{min-height:104px;padding-top:10px;padding-bottom:10px;}
 html .mmw26-portrait .mmw26-copy{margin-inline:8px;grid-template-columns:80px minmax(0,1fr);gap:0 9px;}
 html .mmw26-portrait .mmw26-name{font-size:27px;}
 html .mmw26-portrait .mmw26-weave{inset:2px 8px;}
 html .mmw26-portrait .mmw26-weave::before,html .mmw26-portrait .mmw26-weave::after{height:100px;margin-top:-50px;}
-html .mmw26-portrait.mmw26-entrelacs{--mmw-size:88px;--mmw-tree:60px;--mmw-tree-x:calc(50% + 31px);--mmw-tree-y:57%;--mmw-ring:90px;--mmw-corner:19px 4px 19px 4px;}
-html .mmw26-portrait.mmw26-entrelacs .mmw26-photo{left:-13px;}
-html .mmw26-portrait.mmw26-triade{--mmw-size:80px;--mmw-gap:30px;--mmw-tree:64px;--mmw-ring:98px;--mmw-corner:4px 18px 4px 18px;}
+html .mmw26-portrait.mmw26-entrelacs{--mmw-size:106px;--mmw-tree:66px;--mmw-tree-x:calc(50% + 55px);--mmw-tree-y:50%;--mmw-ring:100px;--mmw-corner:19px 4px 19px 4px;}
+html .mmw26-portrait.mmw26-entrelacs .mmw26-photo{left:-40px;}
+html .mmw26-portrait.mmw26-triade{--mmw-size:94px;--mmw-gap:84px;--mmw-tree:68px;--mmw-ring:106px;--mmw-corner:4px 18px 4px 18px;}
 html .mmw26-portrait.mmw26-triade .mmw26-second{border-radius:18px 4px 18px 4px;}
-html .mmw26-portrait.mmw26-nemeton{--mmw-size:88px;--mmw-tree:62px;--mmw-tree-x:calc(50% - 28px);--mmw-tree-y:58%;--mmw-ring:94px;--mmw-corner:4px 21px 4px 21px;}
-html .mmw26-portrait.mmw26-nemeton .mmw26-photo{left:16px;}
-html .mmw26-portrait.mmw26-anam{--mmw-size:82px;--mmw-gap:16px;--mmw-tree:48px;--mmw-ring:72px;--mmw-tree-y:calc(100% - 26px);}
-html .mmw26-portrait.mmw26-anam .mmw26-scene{padding-bottom:15px;}
+html .mmw26-portrait.mmw26-nemeton{--mmw-size:106px;--mmw-tree:68px;--mmw-tree-x:calc(50% - 55px);--mmw-tree-y:50%;--mmw-ring:100px;--mmw-corner:4px 21px 4px 21px;}
+html .mmw26-portrait.mmw26-nemeton .mmw26-photo{left:40px;}
+html .mmw26-portrait.mmw26-anam{--mmw-size:96px;--mmw-gap:76px;--mmw-tree:60px;--mmw-ring:88px;--mmw-tree-y:50%;}
+html .mmw26-portrait.mmw26-anam .mmw26-scene{padding-bottom:10px;}
 @keyframes mmw26-turn{to{transform:rotate(360deg);}}
 @keyframes mmw26-trinity{from{transform:rotate(-12deg) scale(.97);}to{transform:rotate(12deg) scale(1.03);}}
 @keyframes mmw26-thread-a{0%{transform:rotateX(39deg) rotateZ(-7deg) scaleX(.94);opacity:.5;}50%{transform:rotateX(-14deg) rotateZ(1deg) scaleX(1);opacity:.86;}100%{transform:rotateX(-40deg) rotateZ(7deg) scaleX(.97);opacity:.62;}}
