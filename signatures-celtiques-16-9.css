@@ -51,6 +51,14 @@ html .mmw26-anam .mmw26-ring{top:auto;bottom:-35px;left:calc(50% - 39px);width:7
 html .mmw26-anam .mmw26-weave{inset:auto 12px -9px;height:28px;background-size:100% 28px;}
 html .mmw26-anam .mmw26-copy{margin-top:32px;}
 @keyframes mmw26-turn{to{transform:rotate(360deg);}}
+/* Déclinaisons portrait : largeur contenue, hauteur naturelle, coins droits. */
+html .mmw26.mmw26-portrait{width:340px;}
+html .mmw26-portrait .mmw26-photo{width:94px;max-width:100%;justify-self:center;border-radius:0;}
+html .mmw26-portrait.mmw26-entrelacs .mmw26-photo,html .mmw26-portrait.mmw26-nemeton .mmw26-photo{width:100px;}
+html .mmw26-portrait.mmw26-triade .mmw26-photo{width:80px;}
+html .mmw26-portrait.mmw26-anam .mmw26-photo{width:88px;}
+html .mmw26-portrait.mmw26-dair .mmw26-scene{min-height:140px;}
+html .mmw26-portrait.mmw26-entrelacs .mmw26-scene,html .mmw26-portrait.mmw26-nemeton .mmw26-scene{min-height:145px;}
 @keyframes mmw26-sway{from{transform:rotate(-7deg);}to{transform:rotate(7deg);}}
 @keyframes mmw26-glow{from{opacity:.3;}to{opacity:.7;}}
 html .mmw26-gallery{max-width:720px;margin:15px auto;font:12px/1.7 Arial,sans-serif;color:#cbd2d5;}
