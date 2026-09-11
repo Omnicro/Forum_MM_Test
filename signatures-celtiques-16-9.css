@@ -94,5 +94,13 @@ html .mmw26-gallery .mmw26-code{padding-top:12px;margin-top:23px;border-top:1px 
 html .mmw26-gallery .mmw26-code summary{font:10px/1.5 Arial,sans-serif;color:#a8b8bb;cursor:pointer;}
 html .mmw26-gallery pre{white-space:pre-wrap;overflow-wrap:anywhere;max-height:180px;overflow:auto;padding:12px;background:#070c16;border:1px solid #77939d44;font:11px/1.6 Consolas,monospace;color:#c6d0d4;}
 @media(max-width:500px){html .mmw26-gallery .mmw26-demo{padding:18px 10px;}html .mmw26 .mmw26-copy{column-gap:7px;}html .mmw26 .mmw26-name{font-size:26px;max-width:110px;}html .mmw26:not(.mmw26-portrait).mmw26-entrelacs{--mmw-size:190px;--mmw-tree-x:calc(50% + 76px);--mmw-tree:62px;--mmw-ring:90px;}html .mmw26:not(.mmw26-portrait).mmw26-nemeton{--mmw-size:186px;--mmw-tree-x:calc(50% - 73px);--mmw-tree:64px;--mmw-ring:98px;}html .mmw26 .mmw26-weave{inset-inline:8px;}}
+/* Hauteur harmonisée ; celtic-height.js ajuste les images à leur ratio naturel. */
+html .mmw26,html .mmw26.mmw26-portrait{width:500px;height:190px;display:grid;grid-template-rows:minmax(0,1fr) auto auto;row-gap:2px;}
+html .mmw26 .mmw26-scene,html .mmw26.mmw26-portrait .mmw26-scene{height:100%;min-height:0;padding:10px 9px;}
+html .mmw26 .mmw26-scene:has(.mmw26-second){display:grid;grid-template-columns:minmax(0,1fr) var(--mmw-gap) minmax(0,1fr);column-gap:0;}
+html .mmw26 .mmw26-scene:has(.mmw26-second) .mmw26-photo{grid-column:1;justify-self:end;}
+html .mmw26 .mmw26-scene:has(.mmw26-second) .mmw26-second{grid-column:3;justify-self:start;}
+html .mmw26 .mmw26-copy{margin:0 auto;}
+html .mmw26 :is(.mmw26-pause,.mmw26-motion){position:relative;right:auto;bottom:auto;justify-self:end;margin-right:17px;}
 /* Respect du réglage système, avec activation volontaire par signature. */
 @media(prefers-reduced-motion:reduce){html .mmw26:not(:has(.mmw26-motion[open])) *,html .mmw26:not(:has(.mmw26-motion[open])) *::before,html .mmw26:not(:has(.mmw26-motion[open])) *::after{animation:none!important;transition:none!important;}html .mmw26 .mmw26-pause{display:none;}html .mmw26 .mmw26-motion{display:block;}html .mmw26:not(:has(.mmw26-motion[open])) .mmw26-tree::after{opacity:0;}}
