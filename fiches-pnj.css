@@ -1,8 +1,8 @@
 /* Mythic Meridian — fiches PNJ. CSS autonome, préfixe mm-pnj uniquement. */
-html .mm-pnj-list{display:flex;flex-wrap:wrap;align-items:flex-start;justify-content:center;gap:16px 12px;max-width:100%;margin:18px 0;padding:0;box-sizing:border-box;}
+html .mm-pnj-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,170px),1fr));align-items:start;justify-content:center;gap:16px 12px;width:100%;max-width:624px;margin:18px auto;padding:0;box-sizing:border-box;}
 html .mm-pnj-list>br,html .mm-pnj>br{display:none;}
 html .mm-pnj{--pnj-accent:#99bbdc;--pnj-rgb:116,160,203;--pnj-width:200px;position:relative;isolation:isolate;display:inline-block;vertical-align:top;flex:0 1 var(--pnj-width);width:var(--pnj-width);max-width:100%;box-sizing:border-box;margin:8px 6px;padding:0;overflow:hidden;border:1px solid rgba(var(--pnj-rgb),.33);border-radius:5px;background:#080f1b;color:#dbe0e8;box-shadow:0 7px 18px -12px #000,0 1px 0 #ffffff08 inset;font:13px/1.6 Calibri,Arial,sans-serif;text-align:left;letter-spacing:0;overflow-wrap:anywhere;transition:border-color .4s,box-shadow .4s;}
-html .mm-pnj-list>.mm-pnj{margin:0;}
+html .mm-pnj-list>.mm-pnj{width:min(100%,var(--pnj-width));min-width:0;max-width:100%;margin:0;justify-self:center;}
 html .mm-pnj *,html .mm-pnj *::before,html .mm-pnj *::after{box-sizing:border-box;}
 /* MM-PNJ PALETTE FORUM DEBUT — générée depuis styles_rapides.css. */
 html aed.mm-pnj{--pnj-accent:#D80353;--pnj-rgb:216,3,83;}
@@ -39,8 +39,9 @@ html .mm-pnj>header>small{display:block;margin:0 0 6px;padding:0;color:#abb6c7;f
 html .mm-pnj>header>strong{position:relative;z-index:1;display:block;margin:0;padding:0;border:0;color:var(--pnj-accent);font:500 28px/1.04 "Cormorant Garamond",Georgia,serif;letter-spacing:-.35px;text-transform:none;text-shadow:0 1px 0 #000,0 0 20px rgba(var(--pnj-rgb),.15);}
 html .mm-pnj>header::before{content:"";position:absolute;left:16px;bottom:10px;width:28px;height:1px;background:linear-gradient(90deg,var(--pnj-accent),transparent);transition:width .55s;}
 html .mm-pnj>header::after{content:"";position:absolute;right:14px;top:50%;width:7px;height:7px;border-right:1px solid var(--pnj-accent);border-bottom:1px solid var(--pnj-accent);transform:translateY(-3px) rotate(45deg);opacity:.8;transition:transform .5s;}
-html .mm-pnj>section{display:grid;grid-template-rows:0fr;margin:0;padding:0;border:0;background:linear-gradient(135deg,rgba(var(--pnj-rgb),.035),transparent 75%),#080f1b;opacity:0;visibility:hidden;transition:grid-template-rows .55s cubic-bezier(.2,.7,.25,1),opacity .4s,visibility .55s;}
-html .mm-pnj>section>div{min-height:0;max-height:260px;overflow:hidden;margin:0;padding:0;color:inherit;scrollbar-width:thin;scrollbar-color:rgba(var(--pnj-rgb),.65) #080f1b;}
+html .mm-pnj>section{display:grid;grid-template-rows:minmax(0,0fr);overflow:hidden;margin:0;padding:0;border:0;background:linear-gradient(135deg,rgba(var(--pnj-rgb),.035),transparent 75%),#080f1b;opacity:0;visibility:hidden;transition:grid-template-rows .55s cubic-bezier(.2,.7,.25,1),opacity .4s,visibility .55s;}
+/* Le volet découpe l'animation ; la zone de lecture garde sa hauteur réelle. */
+html .mm-pnj>section>div{height:max-content;min-height:0;max-height:260px;overflow:auto;margin:0;padding:0;color:inherit;scrollbar-width:thin;scrollbar-color:rgba(var(--pnj-rgb),.65) #080f1b;}
 html .mm-pnj>section>div>p{margin:14px 16px;padding:0;border:0;background:none;color:inherit;font:inherit;letter-spacing:0;text-align:left;}
 html .mm-pnj>section>div>p:first-child{margin-top:16px;}
 html .mm-pnj>section>div>p:last-child{margin-bottom:18px;}
@@ -51,17 +52,17 @@ html .mm-pnj>header{background-image:linear-gradient(110deg,transparent 38%,rgba
 @keyframes mm-pnj-reflet{0%,50%,100%{background-position:100% 0,0 0;}82%,90%{background-position:-100% 0,0 0;}}
 /* Le focus conserve l'ouverture pendant la lecture et la navigation dans les liens. */
 html .mm-pnj:focus-within{outline:1px solid var(--pnj-accent);outline-offset:3px;border-color:rgba(var(--pnj-rgb),.75);box-shadow:0 12px 30px -15px #000,0 0 22px -12px rgba(var(--pnj-rgb),.4);}
-html .mm-pnj:focus-within>section{grid-template-rows:1fr;opacity:1;visibility:visible;}
+html .mm-pnj:focus-within>section{grid-template-rows:minmax(0,1fr);opacity:1;visibility:visible;}
 html .mm-pnj:focus-within>section>div{overflow:auto;}
 html .mm-pnj:focus-within>header::before{width:68px;}
 html .mm-pnj:focus-within>header::after{transform:translateY(1px) rotate(225deg);}
 @media(hover:hover){
 html .mm-pnj:hover{border-color:rgba(var(--pnj-rgb),.75);box-shadow:0 12px 30px -15px #000,0 0 22px -12px rgba(var(--pnj-rgb),.4);}
-html .mm-pnj:hover>section{grid-template-rows:1fr;opacity:1;visibility:visible;}
+html .mm-pnj:hover>section{grid-template-rows:minmax(0,1fr);opacity:1;visibility:visible;}
 html .mm-pnj:hover>section>div{overflow:auto;}
 html .mm-pnj:hover>header::before{width:68px;}
 html .mm-pnj:hover>header::after{transform:translateY(1px) rotate(225deg);}
 }
 /* Sur écran tactile les informations restent disponibles sans geste de survol. */
-@media(hover:none){html .mm-pnj>section{grid-template-rows:1fr;opacity:1;visibility:visible;}html .mm-pnj>section>div{overflow:auto;}html .mm-pnj>header::after{transform:translateY(1px) rotate(225deg);}}
+@media(hover:none){html .mm-pnj>section{grid-template-rows:minmax(0,1fr);opacity:1;visibility:visible;}html .mm-pnj>section>div{overflow:auto;}html .mm-pnj>header::after{transform:translateY(1px) rotate(225deg);}}
 @media(prefers-reduced-motion:reduce){html .mm-pnj,html .mm-pnj *,html .mm-pnj *::before,html .mm-pnj *::after{animation:none!important;transition:none!important;}}
