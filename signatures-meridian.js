@@ -11,7 +11,8 @@
   var saved=new WeakMap(),pending=[],renderQueued=false,fitQueued=false,fitted=[];
   var resizeObserver=window.ResizeObserver?new ResizeObserver(scheduleFit):null;
   var manageLegacy=false;
-  var customizers=new WeakMap();
+  var sources=new WeakMap();
+  var sections={nom:'nom',citation:'citation',texte1:'accroche',texte2:'mention',img1:'image1',img2:'image2'};
   function ensureCss(){
     if(document.getElementById('mm-signatures-css'))return;
     var development=['mmf26-fenrir-css','mmw26-css','mmc26-celtic-css','mm-signatures-compactes-css','mmh26-clockwork-css','mmo26-orbites-css','mms26-collection-css'];
@@ -20,8 +21,24 @@
     link.addEventListener('load',scheduleFit);document.head.appendChild(link);
   }
   function config(host){
-    var result={};
+    var result={},source=sources.get(host)||{};
+    // Seuls les enfants directs de CETTE signature fournissent ses textes et images.
+    Array.prototype.forEach.call(host.children,function(node){
+      Object.keys(sections).forEach(function(className){
+        if(!node.classList.contains(className))return;
+        var key=sections[className];
+        if(className==='img1'||className==='img2'){
+          if(node.tagName==='IMG')source[key]=node.getAttribute('src')||node.getAttribute('url')||'';
+        }else{
+          var copy=node.cloneNode(true);
+          Array.prototype.forEach.call(copy.querySelectorAll('br'),function(br){br.replaceWith('\n');});
+          source[key]=copy.textContent.trim();
+        }
+      });
+    });
+    sources.set(host,source);
     Object.keys(defaults).forEach(function(key){var value=host.getAttribute('data-'+key);result[key]=value===null?defaults[key]:value;});
+    Object.keys(source).forEach(function(key){result[key]=source[key];});
     result.modele=(host.getAttribute('data-modele')||'').trim().toLowerCase();
     var color=result.couleur.trim();if(color.charAt(0)!=='#')color='#'+color;
     result.couleur=/^#(?:[\da-f]{3}|[\da-f]{6}|[\da-f]{8})$/i.test(color)?color:defaults.couleur;
@@ -64,45 +81,21 @@
     saved.set(host,{key:key,root:root});
     host.replaceChildren(root);host.setAttribute('data-mm-signature-state','ready');
     watchFit(root,prefix);
-    personalize(host,root,prefix);
+    updateExample(host,root,prefix);
   }
   function escapeAttribute(value){return value.replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
-  function shortCode(host){
-    var data=config(host),code='<div class="mm-signature" data-modele="'+escapeAttribute(data.modele)+'" data-nom="'+escapeAttribute(data.nom)+'"';
-    Object.keys(defaults).forEach(function(key){if(key!=='nom'&&data[key]!==defaults[key])code+=' data-'+key+'="'+escapeAttribute(data[key])+'"';});
-    return code+'></div>';
-  }
-  function personalize(host,root,prefix){
+  function updateExample(host,root,prefix){
     var section=host.closest('.mms26-gallery[data-mm-selection] .mms26-demo');
     if(!section)return;
-    var previous=customizers.get(host);if(previous){previous.update();return;}
-    var initial=config(host),panel=document.createElement('details'),summary=document.createElement('summary');
-    panel.className='mms26-code mm-signature-customizer';summary.textContent='Personnaliser les textes';panel.appendChild(summary);
-    var fields=document.createElement('div');fields.style.cssText='display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin-top:15px;text-transform:none;letter-spacing:normal;text-align:left';panel.appendChild(fields);
-    var definitions=[['nom','Nom du personnage'],['citation','Citation'],['mention','Mention d’écriture']];
-    if(root.querySelector('.'+prefix+'-kicker,.'+prefix+'-eyebrow'))definitions.splice(1,0,['accroche','Devise']);
-    var inputs={},inputStyle='box-sizing:border-box;width:100%;min-width:0;margin:5px 0 0;padding:9px 10px;border:1px solid #b49a6659;border-radius:3px;background:#080f1d;color:#e1e4e9;font:13px/1.5 Arial,sans-serif;letter-spacing:normal;text-transform:none';
-    definitions.forEach(function(def){
-      var label=document.createElement('label'),title=document.createElement('span'),input=document.createElement(def[0]==='citation'?'textarea':'input');
-      title.textContent=def[1];label.appendChild(title);input.value=initial[def[0]];input.style.cssText=inputStyle;
-      if(def[0]==='citation'){input.rows=3;input.style.resize='vertical';label.style.gridColumn='1 / -1';}else input.type='text';
-      input.setAttribute('data-mm-signature-field',def[0]);input.addEventListener('input',function(){host.setAttribute('data-'+def[0],input.value);update();});
-      label.appendChild(input);fields.appendChild(label);inputs[def[0]]=input;
-    });
-    var label=document.createElement('label'),title=document.createElement('span'),output=document.createElement('textarea');
-    label.style.gridColumn='1 / -1';title.textContent='Votre code à coller';output.readOnly=true;output.rows=3;output.style.cssText=inputStyle+';resize:vertical;font-family:monospace;font-size:11px';label.appendChild(title);label.appendChild(output);fields.appendChild(label);
-    var actions=document.createElement('div');actions.style.cssText='grid-column:1 / -1;display:flex;flex-wrap:wrap;gap:8px;align-items:center';fields.appendChild(actions);
-    function button(text,handler){var b=document.createElement('button');b.type='button';b.textContent=text;b.style.cssText='cursor:pointer;padding:7px 12px;border:1px solid #b49a6680;border-radius:3px;background:#111b2c;color:#dfc78e;font:12px/1.5 Arial,sans-serif;text-transform:none;letter-spacing:normal';b.addEventListener('click',handler);actions.appendChild(b);}
-    var status=document.createElement('span');status.setAttribute('role','status');status.style.cssText='font:12px/1.5 Arial,sans-serif;color:#b8c5d0';
-    button('Copier mon code',function(){
-      function select(){output.focus();output.select();status.textContent='Code sélectionné : Ctrl + C pour le copier.';}
-      select();
-      if(navigator.clipboard&&navigator.clipboard.writeText)navigator.clipboard.writeText(output.value).then(function(){status.textContent='Code copié.';},select);
-    });
-    button('Réinitialiser',function(){Object.keys(inputs).forEach(function(key){inputs[key].value=initial[key];host.setAttribute('data-'+key,initial[key]);});update();});
-    actions.appendChild(status);
-    function update(){var value=shortCode(host);output.value=value;var pre=section.querySelector('.mms26-code pre');if(pre)pre.textContent=value;status.textContent='';}
-    customizers.set(host,{update:update});host.insertAdjacentElement('afterend',panel);update();
+    var pre=section.querySelector('.mms26-code pre');if(!pre)return;
+    var data=config(host),head='<div class="mm-signature" data-modele="'+escapeAttribute(data.modele)+'"';
+    if(data.couleur!==defaults.couleur)head+=' data-couleur="'+escapeAttribute(data.couleur)+'"';
+    var lines=[head+'>','  <div class="nom">'+escapeAttribute(data.nom)+'</div>','  <div class="citation">'+escapeAttribute(data.citation).replace(/\n/g,'<br>')+'</div>'];
+    if(root.querySelector('.'+prefix+'-kicker,.'+prefix+'-eyebrow'))lines.push('  <div class="texte1">'+escapeAttribute(data.accroche)+'</div>');
+    lines.push('  <div class="texte2">'+escapeAttribute(data.mention)+'</div>');
+    var count=root.querySelectorAll('img').length;
+    for(var i=1;i<=count;i++)lines.push('  <img class="img'+i+'" src="'+escapeAttribute(imageUrl(data['image'+i],defaults['image'+i]))+'" alt="">');
+    lines.push('</div>');pre.textContent=lines.join('\n');
   }
   function enqueue(host){if(pending.indexOf(host)<0)pending.push(host);if(!renderQueued){renderQueued=true;requestAnimationFrame(flush);}}
   function flush(){renderQueued=false;var queue=pending;pending=[];queue.forEach(render);}
@@ -188,6 +181,7 @@
     scan(document.body);flush();
     var observer=new MutationObserver(function(records){records.forEach(function(record){
       if(record.type==='attributes'){if(record.target.matches(selector))enqueue(record.target);return;}
+      if(record.target.nodeType===1&&record.target.matches(selector)&&Array.prototype.some.call(record.addedNodes,function(node){return node.nodeType===1&&Object.keys(sections).some(function(name){return node.classList.contains(name);});}))enqueue(record.target);
       Array.prototype.forEach.call(record.addedNodes,scan);
       if(record.removedNodes.length&&fitted.length)scheduleFit();
     });});
@@ -195,7 +189,7 @@
     window.addEventListener('resize',scheduleFit,{passive:true});
     Array.prototype.forEach.call(document.querySelectorAll('link[rel="stylesheet"]'),function(link){link.addEventListener('load',scheduleFit);});
     if(document.fonts&&document.fonts.ready)document.fonts.ready.then(scheduleFit);
-    document.documentElement.setAttribute('data-mm-signatures','1.1');
+    document.documentElement.setAttribute('data-mm-signatures','1.2');
   }
   // Laisser les modules déjà installés terminer leur initialisation avant de générer les nouveaux blocs.
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',function(){setTimeout(boot,0);});else setTimeout(boot,0);
