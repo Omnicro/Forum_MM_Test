@@ -149,7 +149,7 @@
     photos.forEach(function(photo){
       var img=photo.querySelector('img');if(!img)return;
       // Le ratio appartient au modèle, jamais au fichier GIF ni à son chargement.
-      var ratio=landscape?16/10:portrait?2/3:square?1:16/10;
+      var ratio=landscape?16/9:portrait?2/3:square?1:16/10;
       var width=Math.max(1,Math.min(available,Math.max(1,innerHeight)*ratio));
       set(photo,'--mm-frame-width',(Math.floor(width*100)/100)+'px');
       set(photo,'--mm-frame-height',(Math.floor(width/ratio*100)/100)+'px');
@@ -222,7 +222,7 @@
     Array.prototype.forEach.call(document.querySelectorAll('link[rel="stylesheet"]'),function(link){link.addEventListener('load',scheduleFit);});
     if(document.fonts&&document.fonts.ready)document.fonts.ready.then(scheduleFit);
     if(document.fonts&&document.fonts.addEventListener)document.fonts.addEventListener('loadingdone',scheduleFit);
-    document.documentElement.setAttribute('data-mm-signatures','1.5.1');
+    document.documentElement.setAttribute('data-mm-signatures','1.5.2');
   }
   // Laisser les modules déjà installés terminer leur initialisation avant de générer les nouveaux blocs.
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',function(){setTimeout(boot,0);});else setTimeout(boot,0);
