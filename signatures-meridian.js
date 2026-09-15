@@ -47,6 +47,15 @@
     var link=document.createElement('link');link.id='mm-signatures-css';link.rel='stylesheet';link.href='https://cdn.jsdelivr.net/gh/Omnicro/Forum_MM_Test@65e3a45b6f87b90150e05703cee805188764133b/signatures-meridian.css';
     link.addEventListener('load',scheduleFit);document.head.appendChild(link);
   }
+  function ensureNameRules(){
+    if(document.getElementById('mm-signatures-name-rules'))return;
+    var style=document.createElement('style');style.id='mm-signatures-name-rules';
+    var names='html :is('+collectionSelector+')[data-mm-fixed-frames] :is(.mms26-name,.mmo26-name,.mmh26-name,.mmc26-name,.mmw26-name,.mmf26-name)';
+    // Le reflet de Dair paysage / Entrelacs, partagé sans modifier la typographie ni la géométrie.
+    style.textContent=names+'{color:#d8bd83;text-shadow:0 4px 10px #0005}'
+      +'@supports ((background-clip:text) or (-webkit-background-clip:text)){'+names+'{background-image:linear-gradient(110deg,#a18752,#f1dca6 42%,#b5995d 72%,#d8bd83)!important;background-clip:text;-webkit-background-clip:text;color:transparent}}';
+    document.head.appendChild(style);
+  }
   function config(host){
     var result={},source=sources.get(host)||{fonts:{}};
     // Seuls les enfants directs de CETTE signature fournissent ses textes et images.
@@ -230,7 +239,7 @@
   function boot(){
     document.documentElement.setAttribute('data-mm-signatures','starting');
     ensureCss();
-    ensureFrameRules();window.mmw26HeightReady=true;
+    ensureFrameRules();ensureNameRules();window.mmw26HeightReady=true;
     scan(document.body);flush();
     var observer=new MutationObserver(function(records){records.forEach(function(record){
       if(record.type==='attributes'){if(record.target.matches(selector))enqueue(record.target);else if(record.attributeName==='font'&&record.target.parentElement&&record.target.parentElement.matches(selector))enqueue(record.target.parentElement);return;}
@@ -243,7 +252,7 @@
     Array.prototype.forEach.call(document.querySelectorAll('link[rel="stylesheet"]'),function(link){link.addEventListener('load',scheduleFit);});
     if(document.fonts&&document.fonts.ready)document.fonts.ready.then(scheduleFit);
     if(document.fonts&&document.fonts.addEventListener)document.fonts.addEventListener('loadingdone',scheduleFit);
-    document.documentElement.setAttribute('data-mm-signatures','1.6.0');
+    document.documentElement.setAttribute('data-mm-signatures','1.6.1');
   }
   // Laisser les modules déjà installés terminer leur initialisation avant de générer les nouveaux blocs.
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',function(){setTimeout(boot,0);});else setTimeout(boot,0);
